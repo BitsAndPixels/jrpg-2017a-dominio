@@ -2,6 +2,8 @@ package dominio;
 
 import java.util.LinkedList;
 
+
+
 public class Alianza {
 
 	String nombre;
