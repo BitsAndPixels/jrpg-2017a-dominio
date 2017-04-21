@@ -1,5 +1,13 @@
 package dominio;
-
+/**
+ * Class Humano
+ * Extiende a la Class Personaje dandole caracteristicas de Humano:
+ * Ventajas: salud +5 y energía +5
+ * @see #Humano(String, Casta, int)
+ * Habilidades: Incentivar y Golpe Fatal
+ * @see #habilidadRaza1(Peleable)
+ * @see #habilidadRaza2(Peleable)
+ */
 public class Humano extends Personaje {
 
 	public Humano(String nombre, Casta casta, int id) {
@@ -22,6 +30,12 @@ public class Humano extends Personaje {
 	}
 
 	// Incentivar
+	/**
+	 * Habilidad de Humano "Incentivar":
+	 * Si la energia del personaje es mayor a 10, brinda a un aliado puntos de magia para sus ataques.
+	 * @param atacado aliado que recibe los puntos de magia para sumar a los de su ataque.
+	 * @return true si se pudo aplicar la habilidad, false si no se pudo.
+	 */
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
@@ -32,6 +46,12 @@ public class Humano extends Personaje {
 	}
 
 	// Golpe Fatal
+	/**
+	 * Habilidad de Humano "Golpe Fatal":
+	 * Si la energia del personaje es mayor a 10, brinda la posibilidad de un golpe capaz de quitar hasta la mitad de la salud del oponente.
+	 * @param atacado personaje que recibe el ataque Golpe Fatal.
+	 * @return true si se pudo aplicar la habilidad, false si no se pudo.
+	 */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			if (atacado.serAtacado(atacado.getSalud() / 2) > 0) {
