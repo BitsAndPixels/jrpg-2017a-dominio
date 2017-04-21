@@ -1,5 +1,15 @@
 package dominio;
 
+
+/**
+ * Class Asesino
+ * Extiende a la Class Casta con las habilidades del tipo Asesino:
+ * 
+ * Habilidades: Golpe Critico, Aumentar Evasion y Robar
+ * @see #habilidad1(Personaje, Peleable)
+ * @see #habilidad2(Personaje, Peleable)
+ * @see #habilidad3(Personaje, Peleable)
+ */
 public class Asesino extends Casta {
 
 	public Asesino(double prob_crit, double evasion, double daño_crit) {
@@ -17,6 +27,14 @@ public class Asesino extends Casta {
 	}
 
 	// Golpe Crítico
+	/**
+	 * Habilidad de Asesino "Golpe Crítico":
+	 * Si la energia del personaje es mayor a 10, el personaje podrá dar un golpe critico en base a sus puntos de daño critico:
+	 * @see Casta.#dañoCritico
+	 * @param caster personaje que realiza la acción
+	 * @param atacado personaje que recibe el golpe
+	 * @return true si se pudo aplicar la habilidad, false si no se pudo.
+	 */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -27,6 +45,14 @@ public class Asesino extends Casta {
 	}
 
 	// Aumentar Evasion
+	/**
+	 * Habilidad de Asesino "Aumentar Evasion":
+	 * Si la energia del personaje es mayor a 10, el personaje podrá evadir un ataque en base a sus puntos de evasión:
+	 * @see Casta.#probabilidadEvitarDaño
+	 * @param caster personaje que realiza la acción
+	 * @param atacado personaje que recibe el golpe
+	 * @return true si se pudo aplicar la habilidad, false si no se pudo.
+	 */
 	public boolean habilidad2(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -40,6 +66,12 @@ public class Asesino extends Casta {
 	}
 
 	// Robar
+	/**
+	 * Habilidad de Asesino "Robar": 
+	 * @param caster personaje que realiza la acción
+	 * @param atacado personaje que recibe el golpe
+	 * @return false
+	 */
 	public boolean habilidad3(Personaje caster, Peleable atacado) {
 		return false;
 	}
