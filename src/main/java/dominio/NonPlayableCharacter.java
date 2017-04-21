@@ -1,5 +1,24 @@
 package dominio;
 
+
+/**
+ * <p> Contiene la información necesaria para establecer la dicultad de un determinado nivel
+ * del juego junto con:
+ *  + El nivel de salud de los personajes
+ *  + La fuerza de sus ataques
+ *  + El nivel de defensa que poseen
+ * 	+ Nombre del nivel
+ *  + Nivel del juego en que se encuentra el jugador
+ *  
+ *  En función al nivel del juego en que se encuentra el jugador, se configuran
+ *  	+ Fuerza 
+ *      + Salud
+ *      + Defensa 
+ *      
+ * 	@see Peleable interfaz perteneciente a este proyecto
+ *
+ */
+
 public class NonPlayableCharacter implements Peleable {
 
 	private int salud;
@@ -9,6 +28,20 @@ public class NonPlayableCharacter implements Peleable {
 	private int nivel;
 	private static final int dificultadAleatoria = -1;
 
+	
+	
+	/**
+	 * Metodo constructor que permite inicializar un objeto NonPlayableCharacter definiendo
+	 * la dicultad del juego y en función a este parametro 
+	 * 	+Fuerza
+	 * 	+Salud
+	 *  +Defensa
+	 *  Determinando estos atributos dependiendo del nivel en el que se encuentra el jugador
+	 * 
+	 * @param nombre
+	 * @param nivel
+	 * @param dificultadNPC
+	 */
 	public NonPlayableCharacter(String nombre, int nivel, int dificultadNPC) {
 		this.nombre = nombre;
 		this.nivel = nivel;
@@ -34,7 +67,6 @@ public class NonPlayableCharacter implements Peleable {
 			this.salud = 50 + (nivel - 1) * 25;
 			this.defensa = 4 + (nivel - 1) * 4;
 			break;
-
 		}
 	}
 
@@ -85,6 +117,7 @@ public class NonPlayableCharacter implements Peleable {
 	public void setSalud(int salud) {
 		this.salud = salud;
 	}
+	
 
 	public int atacar(Peleable atacado) {
 		if (MyRandom.nextDouble() <= 0.15) {// los NPC tienen 15% de golpes criticos
@@ -93,6 +126,16 @@ public class NonPlayableCharacter implements Peleable {
 			return atacado.serAtacado(this.getAtaque());
 	}
 
+	
+	/**
+	 * Este método permite definir el estdo del personaje luego de recibir un ataque
+	 * El nivel de saluda decrementa en función del nivel de defensa que posea el personaje
+	 * 
+	 * @param daño 	 -> Cantidad recibida de daño por el personaje atacado
+	 * @see MyRandom -> Clase MyRandom perteneciente a este proyecto
+	 * @return daño  -> Daño generado 
+	 * 
+	 */
 	public int serAtacado(int daño) {
 		if (MyRandom.nextDouble() >= 0.15) {
 			daño -= this.getDefensa() / 2;
