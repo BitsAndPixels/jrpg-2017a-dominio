@@ -1,5 +1,11 @@
 package dominio;
 
+/**
+* Clase Guerrero - extiende de la clase abstracta Casta
+* Contiene el contructor por defecto.
+* Contiene el contructor parametrizado de la clase.
+* Contiene las tres habilidades.
+*/
 public class Guerrero extends Casta {
 
 	public Guerrero(double prob_crit, double evasion, double daño_crit) {
@@ -17,7 +23,18 @@ public class Guerrero extends Casta {
 		habilidadesCasta[2] = "Ignorar Defensa";
 	}
 
-	// Ataque Doble
+	/**
+    * Ataque Doble - Habilidad 1
+	*
+	* Si el caster tiene mas de 10 de energia, gasta esa
+	* energia y si el atacado es atacado con el ataque del 
+	* caster por dos mayor a 0 retorna true. 
+	* Sino retorna false.
+	*
+	* @param Personaje que castea
+	* @param Personaje implementando Peleable que es atacado
+	* @return boolean
+    */
 	public boolean habilidad1(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -27,7 +44,18 @@ public class Guerrero extends Casta {
 		return false;
 	}
 	
-	// Aumentar Defensa
+	/**
+    * Aumentar Defensa - Habilidad 2
+	*
+	* Si el caster tiene mas de 10 de energia, gasta esa
+	* energia y caster aumenta su defensa como magia
+	* tenga el caster, retorna true. 
+	* Sino retorna false.
+	*
+	* @param Personaje que castea
+	* @param Personaje implementando Peleable que es atacado
+	* @return boolean
+    */
 	public boolean habilidad2(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -37,7 +65,18 @@ public class Guerrero extends Casta {
 		return false;
 	}
 
-	// Ignorar Defensa
+	/**
+    * Ignorar Defensa - Habilidad 3
+	*
+	* Si el caster tiene mas de 10 de energia, gasta esa
+	* energia y  si el atacado es del de la instancia de Personaje,
+	* se modifica la defensa del atacado.
+	* Sino retorna false.
+	*
+	* @param Personaje que castea
+	* @param Personaje implementando Peleable que es atacado
+	* @return boolean
+    */
 	public boolean habilidad3(Personaje caster, Peleable atacado) { 
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);

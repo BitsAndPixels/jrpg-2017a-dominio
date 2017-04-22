@@ -1,5 +1,10 @@
 package dominio;
 
+/**
+* Clase Elfo - extiende de Personaje
+* Contiene el contructor parametrizado de la clase.
+* Contiene las dos habilidades de raza.
+*/
 public class Elfo extends Personaje {
 
 	public Elfo(String nombre, Casta casta, int id) {
@@ -26,7 +31,17 @@ public class Elfo extends Personaje {
 		habilidadesRaza[1] = "Ataque Bosque";
 	}
 
-	// Golpe Level
+	/**
+    * Golpe Level - Habilidad de raza 1
+	*
+	* Si el atacante tiene mas de 10 de energia, gasta esa
+	* energia y si el atacado es atacado con la fuerza del 
+	* atacante mas su nivel por 10 mayor a 0 retorna true. 
+	* Sino retorna false.
+	*
+	* @param Personaje implementando Peleable que es atacado
+	* @return boolean
+    */
 	public boolean habilidadRaza1(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);
@@ -36,7 +51,17 @@ public class Elfo extends Personaje {
 		return false;
 	}
 
-	// Ataque Bosque
+	/**
+    * Ataque Bosque - Habilidad de raza 2
+	*
+	* Si el atacante tiene mas de 10 de energia, gasta esa
+	* energia y si el atacado es atacado con la magia del 
+	* atacante mayor a 0 retorna true.
+	* Sino retorna false.
+	*
+	* @param Personaje implementando Peleable que es atacado
+	* @return boolean
+    */
 	public boolean habilidadRaza2(Peleable atacado) {
 		if (this.getEnergia() > 10) {
 			this.setEnergia(this.getEnergia() - 10);

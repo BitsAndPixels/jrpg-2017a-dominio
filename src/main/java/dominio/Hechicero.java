@@ -1,5 +1,11 @@
 package dominio;
 
+/**
+* Clase Hechicero - extiende de la clase abstracta Casta
+* Contiene el contructor por defecto.
+* Contiene el contructor parametrizado de la clase.
+* Contiene las tres habilidades.
+*/
 public class Hechicero extends Casta {
 
 	public Hechicero(double prob_crit, double evasion, double daño_crit) {
@@ -15,8 +21,19 @@ public class Hechicero extends Casta {
 		habilidadesCasta[1] = "Curar Aliado";
 		habilidadesCasta[2] = "Robar Energia y Salud";
 	}
-
-	// Bola de Fuego
+	
+	/**
+    * Bola de Fuego - Habilidad 1
+	*
+	* Si el caster tiene mas de 10 de energia, gasta esa
+	* energia y si el atacado es atacado con los puntos de
+	* magia del caster por 1.5 mayor a 0 retorna true. 
+	* Sino retorna false.
+	*
+	* @param Personaje que castea
+	* @param Personaje implementando Peleable que es atacado
+	* @return boolean
+    */
 	public boolean habilidad1(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -26,7 +43,18 @@ public class Hechicero extends Casta {
 		return false;
 	}
 
-	// Curar Aliado
+	/**
+    * Curar Aliado - Habilidad 2
+	*
+	* Si el caster tiene mas de 10 de energia, gasta esa
+	* energia y si el aliado es del de la instancia de Personaje,
+	* se llama al metodo serCurado y retorna true. 
+	* Sino retorna false.
+	*
+	* @param Personaje que castea
+	* @param Personaje implementando Peleable que es aliado
+	* @return boolean
+    */
 	public boolean habilidad2(Personaje caster, Peleable aliado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
@@ -38,7 +66,19 @@ public class Hechicero extends Casta {
 		return false;
 	}
 
-	// Robar Energia y Salud
+	/**
+    * Robar Energia y Salud - Habilidad 3
+	*
+	* Si el caster tiene mas de 10 de energia, gasta esa
+	* energia y  si el atacado es del de la instancia de Personaje,
+	* se llama al metodo serDesernegizado y al metodo serRobadoSalud,
+	* incrementa en esos valores a el caster, retorna true.
+	* Sino retorna false.
+	*
+	* @param Personaje que castea
+	* @param Personaje implementando Peleable que es atacado
+	* @return boolean
+    */
 	public boolean habilidad3(Personaje caster, Peleable atacado) {
 		if (caster.getEnergia() > 10) {
 			caster.setEnergia(caster.getEnergia() - 10);
