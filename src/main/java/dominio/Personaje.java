@@ -30,6 +30,7 @@ import java.io.Serializable;
 
 public abstract class Personaje implements Peleable, Serializable {
 
+    	protected static final int MAX_SKILL_VALUE = 200;
 	protected int salud;
 	protected int energia;
 	protected int defensa;// depende de la destreza
@@ -564,11 +565,12 @@ public abstract class Personaje implements Peleable, Serializable {
 	 * @param inteligencia
 	 */
 	public void AsignarPuntosSkills(int fuerza, int destreza, int inteligencia) {
-		if (this.fuerza + fuerza <= 200)
+		if (this.fuerza + fuerza <= MAX_SKILL_VALUE) {
 			this.fuerza += fuerza;
-		if (this.destreza + destreza <= 200)
+			 }
+		if (this.destreza + destreza <= MAX_SKILL_VALUE)
 			this.destreza += destreza;
-		if (this.inteligencia + inteligencia <= 200)
+		if (this.inteligencia + inteligencia <= MAX_SKILL_VALUE)
 			this.inteligencia += inteligencia;
 		this.modificarAtributos();
 	}

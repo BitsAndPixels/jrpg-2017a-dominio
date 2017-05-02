@@ -7,8 +7,8 @@ public class TestAliarCombatir {
 
 	@Test
 	public void testCrearAlianza(){
-		Humano h = new Humano("Nicolas",new Guerrero(),1);
-		Humano h2 = new Humano("Lautaro",new Guerrero(),1);
+		Humano h = new Humano("Nicolas",  new Guerrero(),  1);
+		Humano h2 = new Humano("Lautaro",  new Guerrero(),  1);
 		
 		Assert.assertNull(h.getClan());
 		Assert.assertNull(h2.getClan());
@@ -19,8 +19,8 @@ public class TestAliarCombatir {
 	
 	@Test
 	public void testDañar(){
-		Humano h = new Humano("Nicolas",new Guerrero(),1);
-		Humano h2 = new Humano("Lautaro",new Asesino(),1);
+		Humano h = new Humano("Nicolas",  new Guerrero(),  1);
+		Humano h2 = new Humano("Lautaro",  new Asesino(),  1);
 		
 		Assert.assertTrue(h2.getSalud()==105);
 		if(	h.atacar(h2)!=0)
@@ -31,8 +31,8 @@ public class TestAliarCombatir {
 	
 	@Test
 	public void testAliar(){
-		Humano h = new Humano("Nicolas",new Guerrero(),1);
-		Humano h2 = new Humano("Lautaro",new Guerrero(),1);
+		Humano h = new Humano("Nicolas", new Guerrero(), 1);
+		Humano h2 = new Humano("Lautaro", new Guerrero(), 1);
 		Alianza a1= new Alianza("Los CacheFC");
 		
 		Assert.assertNull(h2.getClan());
