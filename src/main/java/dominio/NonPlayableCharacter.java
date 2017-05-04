@@ -1,166 +1,330 @@
 package dominio;
 
-
 /**
- * <p> Contiene la información necesaria para establecer la dicultad de un determinado nivel
- * del juego junto con:
- *  + El nivel de salud de los personajes
- *  + La fuerza de sus ataques
- *  + El nivel de defensa que poseen
- * 	+ Nombre del nivel
- *  + Nivel del juego en que se encuentra el jugador
- *  
- *  En función al nivel del juego en que se encuentra el jugador, se configuran
- *  	+ Fuerza 
- *      + Salud
- *      + Defensa 
- *      
- * 	@see Peleable interfaz perteneciente a este proyecto
- *
+ * <p>
+ * Contiene la información necesaria para establecer la dicultad de un
+ * determinado nivel del juego junto con: + El nivel de salud de los personajes
+ * + La fuerza de sus ataques + El nivel de defensa que poseen + Nombre del
+ * nivel + Nivel del juego en que se encuentra el jugador.
+ * En función al nivel del juego en que se encuentra el jugador, se configuran +
+ * Fuerza + Salud + Defensa.
+ * @see Peleable interfaz perteneciente a este proyecto
  */
-
 public class NonPlayableCharacter implements Peleable {
+    /**
+     * salud.
+     */
+    private int salud;
+    /**
+     * fuerza.
+     */
+    private int fuerza;
+    /**
+     * defensa.
+     */
+    private int defensa;
+    /**
+     * nombre.
+     */
+    private String nombre;
+    /**
+     * nivel.
+     */
+    private int nivel;
+    /**
+     * DIFICULTAD_ALEATORIA contante.
+     */
+    private static final int DIFICULTAD_ALEATORIA = -1;
+    /**
+     * MULTIPLICADOR_ATAQUE constante.
+     */
+    private static final double MULTIPLICADOR_ATAQUE = 1.5;
+    /**
+     * SUERTE_MULTIPLICADOR_ATAQUE aleatorio.
+     */
+    private static final double SUERTE_MULTIPLICADOR_ATAQUE = 0.15;
+    /**
+     * EXPERIENCIA que gana.
+     */
+    private static final int EXPERIENCIA = 30;
+    /**
+     * CIFRAS_DIFICULTAD niveles de dificultad de NPC.
+     */
+    private static final int CIFRAS_DIFICULTAD = 3;
+    /**
+     * FUERZA_DIFICULTAD_0.
+     */
+    private static final int FUERZA_DIFICULTAD_0 = 10;
+    /**
+     * FUERZA_DIFICULTAD_1.
+     */
+    private static final int FUERZA_DIFICULTAD_1 = 20;
+    /**
+     * FUERZA_DIFICULTAD_2.
+     */
+    private static final int FUERZA_DIFICULTAD_2 = 30;
+    /**
+     * SALUD_DIFICULTAD_0.
+     */
+    private static final int SALUD_DIFICULTAD_0 = 30;
+    /**
+     * SALUD_DIFICULTAD_1.
+     */
+    private static final int SALUD_DIFICULTAD_1 = 40;
+    /**
+     * SALUD_DIFICULTAD_2.
+     */
+    private static final int SALUD_DIFICULTAD_2 = 50;
+    /**
+     * DEFENSA_DIFICULTAD_0.
+     */
+    private static final int DEFENSA_DIFICULTAD_0 = 2;
+    /**
+     * DEFENSA_DIFICULTAD_1.
+     */
+    private static final int DEFENSA_DIFICULTAD_1 = 5;
+    /**
+     * DEFENSA_DIFICULTAD_2.
+     */
+    private static final int DEFENSA_DIFICULTAD_2 = 4;
+    /**
+     * MULT_FUERZA_DIFICULTAD_0.
+     */
+    private static final int MULT_FUERZA_DIFICULTAD_0 = 3;
+    /**
+     * MULT_FUERZA_DIFICULTAD_1.
+     */
+    private static final int MULT_FUERZA_DIFICULTAD_1 = 6;
+    /**
+     * MULT_FUERZA_DIFICULTAD_2.
+     */
+    private static final int MULT_FUERZA_DIFICULTAD_2 = 10;
+    /**
+     * MULT_SALUD_DIFICULTAD_0.
+     */
+    private static final int MULT_SALUD_DIFICULTAD_0 = 15;
+    /**
+     * MULT_SALUD_DIFICULTAD_1.
+     */
+    private static final int MULT_SALUD_DIFICULTAD_1 = 20;
+    /**
+     * MULT_SALUD_DIFICULTAD_2.
+     */
+    private static final int MULT_SALUD_DIFICULTAD_2 = 25;
+    /**
+     * MULT_DEFENSA_DIFICULTAD_0.
+     */
+    private static final int MULT_DEFENSA_DIFICULTAD_0 = 1;
+    /**
+     * MULT_DEFENSA_DIFICULTAD_1.
+     */
+    private static final int MULT_DEFENSA_DIFICULTAD_1 = 2;
+    /**
+     * MULT_DEFENSA_DIFICULTAD_2.
+     */
+    private static final int MULT_DEFENSA_DIFICULTAD_2 = 4;
 
-	private int salud;
-	private int fuerza;
-	private int defensa;
-	private String nombre;
-	private int nivel;
-	private static final int dificultadAleatoria = -1;
-
-	
-	
-	/**
-	 * Metodo constructor que permite inicializar un objeto NonPlayableCharacter definiendo
-	 * la dicultad del juego y en función a este parametro 
-	 * 	+Fuerza
-	 * 	+Salud
-	 *  +Defensa
-	 *  Determinando estos atributos dependiendo del nivel en el que se encuentra el jugador
-	 * 
-	 * @param nombre
-	 * @param nivel
-	 * @param dificultadNPC
-	 */
-	public NonPlayableCharacter(String nombre, int nivel, int dificultadNPC) {
-		this.nombre = nombre;
-		this.nivel = nivel;
-		int dificultad;
-		if (dificultadNPC == dificultadAleatoria)
-			dificultad = MyRandom.nextInt(3);
-		else
-			dificultad = dificultadNPC;
-
-		switch (dificultad) {
-		case 0:
-			this.fuerza = 10 + (nivel - 1) * 3;// 30%
-			this.salud = 30 + (nivel - 1) * 15;
-			this.defensa = 2 + (nivel - 1) * 1;
-			break;
-		case 1:
-			this.fuerza = 20 + (nivel - 1) * 6;// 50%
-			this.salud = 40 + (nivel - 1) * 20;
-			this.defensa = 5 + (nivel - 1) * 2;
-			break;
-		case 2:
-			this.fuerza = 30 + (nivel - 1) * 10;// 50%
-			this.salud = 50 + (nivel - 1) * 25;
-			this.defensa = 4 + (nivel - 1) * 4;
-			break;
-		}
+    /**
+     * Metodo constructor que permite inicializar un objeto NonPlayableCharacter
+     * definiendo la dicultad del juego y en función a este parametro +Fuerza
+     * +Salud +Defensa Determinando estos atributos dependiendo del nivel en el
+     * que se encuentra el jugador.
+     * @param nombre nombre
+     * @param nivel actual
+     * @param dificultadNPC dificultad
+     */
+    public NonPlayableCharacter(final String nombre, final int nivel,
+	    final int dificultadNPC) {
+	this.nombre = nombre;
+	this.nivel = nivel;
+	int dificultad;
+	if (dificultadNPC == DIFICULTAD_ALEATORIA) {
+	    dificultad = MyRandom.nextInt(CIFRAS_DIFICULTAD);
 	}
-
-	public int otorgarExp() {
-		return this.nivel * 30;
+	else {
+	    dificultad = dificultadNPC;
 	}
-
-	public int getFuerza() {
-		return fuerza;
+	switch (dificultad) {
+	case 0:
+	    this.fuerza = FUERZA_DIFICULTAD_0 + (nivel - 1)
+	    * MULT_FUERZA_DIFICULTAD_0;
+	    this.salud = SALUD_DIFICULTAD_0 + (nivel - 1)
+		    * MULT_SALUD_DIFICULTAD_0;
+	    this.defensa = DEFENSA_DIFICULTAD_0 + (nivel - 1)
+		    * MULT_DEFENSA_DIFICULTAD_0;
+	    break;
+	case 1:
+	    this.fuerza = FUERZA_DIFICULTAD_1 + (nivel - 1)
+	    * MULT_FUERZA_DIFICULTAD_1;
+	    this.salud = SALUD_DIFICULTAD_1 + (nivel - 1)
+		    * MULT_SALUD_DIFICULTAD_1;
+	    this.defensa = DEFENSA_DIFICULTAD_1 + (nivel - 1)
+		    * MULT_DEFENSA_DIFICULTAD_1;
+	    break;
+	case 2:
+	    this.fuerza = FUERZA_DIFICULTAD_2 + (nivel - 1)
+	    * MULT_FUERZA_DIFICULTAD_2;
+	    this.salud = SALUD_DIFICULTAD_2 + (nivel - 1)
+		    * MULT_SALUD_DIFICULTAD_2;
+	    this.defensa = DEFENSA_DIFICULTAD_2 + (nivel - 1)
+		    * MULT_DEFENSA_DIFICULTAD_2;
+	    break;
+	default:
+	    break;
 	}
+    }
 
-	public void setFuerza(int fuerza) {
-		this.fuerza = fuerza;
+    /**
+     * @return nivel.
+     */
+    public int otorgarExp() {
+	return this.nivel * EXPERIENCIA;
+    }
+
+    /**
+     * @return fuerza.
+     */
+    public int getFuerza() {
+	return fuerza;
+    }
+
+    /**
+     * @param fuerza fuerza del personaje.
+     */
+    public void setFuerza(final int fuerza) {
+	this.fuerza = fuerza;
+    }
+
+    /**
+     * @return nombre retorna nombre.
+     */
+    public String getNombre() {
+	return nombre;
+    }
+
+    /**
+     * @param nombre setea nombre.
+     */
+    public void setNombre(final String nombre) {
+	this.nombre = nombre;
+    }
+
+    /**
+     * @return nivel retorna nivel.
+     */
+    public int getNivel() {
+	return nivel;
+    }
+
+    /**
+     * @param nivel setea nivel.
+     */
+    public void setNivel(final int nivel) {
+	this.nivel = nivel;
+    }
+
+    /**
+     * @return si esta vivo o no.
+     */
+    public boolean estaVivo() {
+	return salud > 0;
+    }
+
+    /**
+     * @return defensa.
+     */
+    public int getDefensa() {
+	return defensa;
+    }
+
+    /**
+     * @param defensa setea defensa.
+     */
+    public void setDefensa(final int defensa) {
+	this.defensa = defensa;
+    }
+
+    /**
+     * @return salud retorna salud.
+     */
+    public int getSalud() {
+	return salud;
+    }
+
+    /**
+     * @param salud setea salud.
+     */
+    public void setSalud(final int salud) {
+	this.salud = salud;
+    }
+
+    /**
+     * @param atacado implementa Peleable.
+     * @return valor del ataque.
+     */
+    public int atacar(final Peleable atacado) {
+	if (MyRandom.nextDouble() <= SUERTE_MULTIPLICADOR_ATAQUE) {
+	    return atacado.serAtacado((int) (this.getAtaque()
+		    * MULTIPLICADOR_ATAQUE));
 	}
-
-	public String getNombre() {
-		return nombre;
+	else {
+	    return atacado.serAtacado(this.getAtaque());
 	}
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+    /**Este método permite definir el estdo del personaje luego de recibir un
+     * ataque El nivel de saluda decrementa en función del nivel de defensa que
+     * posea el personaje.
+     * @param daño
+     *            -> Cantidad recibida de daño por el personaje atacado
+     * @see MyRandom -> Clase MyRandom perteneciente a este proyecto
+     * @return daño -> Daño generado
+     */
+    public int serAtacado(int daño) {
+	if (MyRandom.nextDouble() >= 0.15) {
+	    daño -= this.getDefensa() / 2;
+	    if (daño > 0) {
+		salud -= daño;
+		return daño;
+	    }
+	    return 0; // no le hace daño ya que la defensa fue mayor
 	}
+	return 0; // esquivo el golpe
+    }
 
-	public int getNivel() {
-		return nivel;
-	}
+    /**
+     * Implementada en interfaz.
+     */
+    public void despuesDeTurno() {
+    }
 
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
+    /**
+     * @param exp Implementada en interfaz.
+     */
+    public void ganarExperiencia(final int exp) {
 
-	public boolean estaVivo() {
-		return salud > 0;
-	}
+    }
 
-	public int getDefensa() {
-		return defensa;
-	}
+    /* (non-Javadoc)
+     * @see dominio.Peleable#getAtaque()
+     */
+    @Override
+    public int getAtaque() {
+	return fuerza;
+    }
 
-	public void setDefensa(int defensa) {
-		this.defensa = defensa;
-	}
-
-	public int getSalud() {
-		return salud;
-	}
-
-	public void setSalud(int salud) {
-		this.salud = salud;
-	}
-	
-
-	public int atacar(Peleable atacado) {
-		if (MyRandom.nextDouble() <= 0.15) {// los NPC tienen 15% de golpes criticos
-			return atacado.serAtacado((int) (this.getAtaque() * 1.5));
-		} else
-			return atacado.serAtacado(this.getAtaque());
-	}
-
-	
-	/**
-	 * Este método permite definir el estdo del personaje luego de recibir un ataque
-	 * El nivel de saluda decrementa en función del nivel de defensa que posea el personaje
-	 * 
-	 * @param daño 	 -> Cantidad recibida de daño por el personaje atacado
-	 * @see MyRandom -> Clase MyRandom perteneciente a este proyecto
-	 * @return daño  -> Daño generado 
-	 * 
-	 */
-	public int serAtacado(int daño) {
-		if (MyRandom.nextDouble() >= 0.15) {
-			daño -= this.getDefensa() / 2;
-			if (daño > 0) {
-				salud -= daño;
-				return daño;
-			}
-			return 0;// no le hace daño ya que la defensa fue mayor
-		}
-		return 0;// esquivo el golpe
-	}
-
-	public void despuesDeTurno() { }
-
-	public void ganarExperiencia(int exp) {
-
-	}
-
-	@Override
-	public int getAtaque() {
-		return fuerza;
-	}
-
-	@Override
-	public void setAtaque(int ataque) {
-		this.fuerza = ataque;
-	}
+    /* (non-Javadoc)
+     * @see dominio.Peleable#setAtaque(int)
+     */
+    @Override
+    public void setAtaque(final int ataque) {
+	this.fuerza = ataque;
+    }
+    /**
+     * Reemplazo del instance of.
+     * @return false
+     */
+    public boolean esPersonaje() {
+	return false;
+    }
 }
