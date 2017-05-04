@@ -28,21 +28,18 @@ import java.io.Serializable;
  *
  */
 
-public abstract class Personaje implements Peleable, Serializable {
+public abstract class Personaje extends Configuracion implements Peleable, Serializable {
 
-	protected int salud;
+
 	protected int energia;
-	protected int defensa;// depende de la destreza
 	protected int ataque;// depende de la fuerza
 	protected int magia;// depende de la inteligencia
 
-	protected String nombre;// hay que agregarlo a todos los constructores
 	protected String nombreRaza;
 
 	protected int saludTope;
 	protected int energiaTope;
 
-	protected int fuerza;
 	protected int destreza;
 	protected int inteligencia;
 	protected Casta casta;
@@ -51,7 +48,6 @@ public abstract class Personaje implements Peleable, Serializable {
 	protected int y;
 	
 	protected int experiencia;
-	protected int nivel;
 
 	protected int idPersonaje;
 
@@ -90,12 +86,11 @@ public abstract class Personaje implements Peleable, Serializable {
 	 * @param id
 	 */
 	public Personaje(String nombre, Casta casta, int id) {
-		this.nombre = nombre;
+		
+		super(nombre, 100, 10, 1);
 		this.casta = casta;
 		this.idPersonaje = id;
 		experiencia = 0;
-		nivel = 1;
-		fuerza = 10;
 		inteligencia = 10;
 		destreza = 10;
 		if (casta instanceof Guerrero)
@@ -104,14 +99,12 @@ public abstract class Personaje implements Peleable, Serializable {
 			inteligencia += 5;
 		if (casta instanceof Asesino)
 			destreza += 5;
-
+		defensa =  this.calcularPuntosDeDefensa();
 		x = 0;
 		y = 0;
 		saludTope = 100;
 		energiaTope = 100;
-
 		ataque = this.calcularPuntosDeAtaque();
-		defensa = this.calcularPuntosDeDefensa();
 		magia = this.calcularPuntosDeMagia();
 
 	}
@@ -136,23 +129,17 @@ public abstract class Personaje implements Peleable, Serializable {
 	public Personaje(String nombre, int salud, int energia, int fuerza, int destreza, int inteligencia, Casta casta,
 			int experiencia, int nivel,
 			int idPersonaje) {
-
-		this.nombre = nombre;
-		this.salud = salud;
+		super(nombre, salud, fuerza, nivel);
 		this.energia = energia;
-		this.fuerza = fuerza;
 		this.destreza = destreza;
 		this.inteligencia = inteligencia;
 		this.casta = casta;
-
 		this.experiencia = experiencia;
-		this.nivel = nivel;
-
 		this.saludTope = this.salud;
 		this.energiaTope = this.energia;
 
 		this.idPersonaje = idPersonaje;
-		this.defensa = this.calcularPuntosDeDefensa();
+		this.defensa =  this.calcularPuntosDeDefensa();
 		this.ataque = this.calcularPuntosDeAtaque();
 		this.magia = this.calcularPuntosDeMagia();
 	}
@@ -165,13 +152,6 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.nombreRaza = nombreRaza;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	public int getAtaque() {
 		return ataque;
@@ -198,28 +178,12 @@ public abstract class Personaje implements Peleable, Serializable {
 		clan.añadirPersonaje(this);
 	}
 
-	public int getSalud() {
-		return salud;
-	}
-
-	public void setSalud(int salud) {
-		this.salud = salud;
-	}
-
 	public int getEnergia() {
 		return energia;
 	}
 
 	public void setEnergia(int energia) {
 		this.energia = energia;
-	}
-
-	public int getFuerza() {
-		return fuerza;
-	}
-
-	public void setFuerza(int fuerza) {
-		this.fuerza = fuerza;
 	}
 
 	public int getDestreza() {
@@ -254,13 +218,6 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.experiencia = experiencia;
 	}
 
-	public int getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
 
 	public int getIdPersonaje() {
 		return idPersonaje;
@@ -270,14 +227,12 @@ public abstract class Personaje implements Peleable, Serializable {
 		this.idPersonaje = idPersonaje;
 	}
 
-	public int getDefensa() {
-		return defensa;
-	}
-
 	public void setDefensa(int defensa) {
 		this.defensa = defensa;
 	}
-
+	public int getSalud(){
+		return salud;
+	}
 	public int getSaludTope() {
 		return saludTope;
 	}

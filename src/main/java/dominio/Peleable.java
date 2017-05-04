@@ -16,7 +16,6 @@ public interface Peleable {
 	
 	public int serAtacado(int daño);
 	public int getSalud();
-	public void despuesDeTurno();
 	
 	/**
 	 * Método que permite al personaje atacar , determinando si el ataque va a ser critico o no basado 
@@ -37,16 +36,8 @@ public interface Peleable {
 	 * @return this.nivel * 40 -> Cantidad de experiencia entregada 
 	 */
 	
-	public int otorgarExp();
 	public int getAtaque();
 	public void setAtaque(int ataque);
 	
-	/**
-	 * Método que permite determinar si el personaje se encuentra vivo 
-	 * 
-	 * @return salud > 0 -> Establece si el personaje esta vivo 
-	 */ 
 	
-	public boolean estaVivo();
-	public String getNombre();
 }
