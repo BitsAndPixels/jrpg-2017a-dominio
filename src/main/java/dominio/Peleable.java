@@ -28,6 +28,7 @@ public interface Peleable {
 	 * 
 	 */
 	
+	
 	public int atacar(Peleable atacado);
 	
 	/**
@@ -35,6 +36,26 @@ public interface Peleable {
 	 * 
 	 * @return this.nivel * 40 -> Cantidad de experiencia entregada 
 	 */
+	
+	/**
+	 * Este método permite definir el estado del personaje luego de recibir un ataque
+	 * El nivel de saluda decrementa en función del nivel de defensa que posea el personaje
+	 * 
+	 * @param daño 	 -> Cantidad recibida de daño por el personaje atacado
+	 * @see MyRandom -> Clase MyRandom perteneciente a este proyecto
+	 * @return daño  -> Daño generado 
+	 * 
+	 */
+	
+	public abstract  void despuesDeTurno();
+	
+	/**
+	 * Este método permite otorgar experiencia basada en el nivel del personaje 
+	 * 
+	 * @return this.nivel * 40 -> Cantidad de experiencia entregada 
+	 */
+	
+	public abstract  int otorgarExp();
 	
 	public int getAtaque();
 	public void setAtaque(int ataque);
