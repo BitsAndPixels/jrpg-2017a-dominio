@@ -710,4 +710,11 @@ public abstract class Personaje implements Peleable, Serializable {
      *            -> peleable a atacar @return.
      */
     public abstract boolean habilidadRaza2(Peleable atacado);
+    /**
+     * Reemplazo del instance of.
+     * @return true
+     */
+    public boolean esPersonaje() {
+	return true;
+    }
 }

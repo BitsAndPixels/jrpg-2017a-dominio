@@ -55,5 +55,13 @@ public interface Peleable {
      * Método para conseguir el nombre.
      * @return
      */
-    String getNombre();
+    public String getNombre();
+    
+    /**
+     * Reemplazo del instance of.
+     * true para verdadero en personaje,
+     * false para falso en NonPlayableCharacter.
+     * @return boolean
+     */
+    public boolean esPersonaje();
 }

@@ -320,4 +320,11 @@ public class NonPlayableCharacter implements Peleable {
     public void setAtaque(final int ataque) {
 	this.fuerza = ataque;
     }
+    /**
+     * Reemplazo del instance of.
+     * @return false
+     */
+    public boolean esPersonaje() {
+	return false;
+    }
 }
