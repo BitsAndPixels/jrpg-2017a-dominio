@@ -28,7 +28,7 @@ import java.io.Serializable;
  *
  */
 
-public abstract class Personaje extends Configuracion implements Peleable, Serializable {
+public abstract class Personaje extends Avatar implements Peleable, Serializable {
 
 
 	protected int energia;

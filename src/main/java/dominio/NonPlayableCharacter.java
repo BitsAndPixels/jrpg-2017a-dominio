@@ -1,6 +1,6 @@
 package dominio;
 
-public class NonPlayableCharacter extends Configuracion implements Peleable {
+public class NonPlayableCharacter extends Avatar implements Peleable {
 
 	private static final int dificultadAleatoria = -1;
 
@@ -40,10 +40,6 @@ public class NonPlayableCharacter extends Configuracion implements Peleable {
 
 	public int getSalud() {
 		return salud;
-	}
-	
-	public int getDefensa(){
-		return defensa;
 	}
 
 	public int atacar(Peleable atacado) {

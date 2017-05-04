@@ -1,6 +1,6 @@
 package dominio;
 
-public abstract class Configuracion{
+public abstract class Avatar{
 	
 	protected int salud;
 	protected int fuerza;
@@ -9,7 +9,7 @@ public abstract class Configuracion{
 	protected int nivel;
 
 	
-	public Configuracion(String nombre, int salud, int fuerza, int nivel){
+	public Avatar(String nombre, int salud, int fuerza, int nivel){
 		
 		this.nombre = nombre;
 		this.salud = salud;
@@ -17,7 +17,7 @@ public abstract class Configuracion{
 		this.nivel = nivel;
 	}
 	
-	public Configuracion(String nombre, int nivel){
+	public Avatar(String nombre, int nivel){
 		
 		this.nombre = nombre;
 		this.nivel = nivel;
