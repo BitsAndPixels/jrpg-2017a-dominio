@@ -33,6 +33,7 @@ public abstract class Personaje implements Peleable, Serializable {
     protected static final int AUMENTO_ENERGIA = 20;
     protected static final int EXPERIENCIA = 40;
     protected static final int DIVISOR_GOLPE_CRITICO = 1000;
+    protected static final double MUL_PUNTOS_MAGIA = 1.5;
     protected int salud;
     protected int energia;
     protected int defensa; // depende de la destreza
@@ -72,15 +73,16 @@ public abstract class Personaje implements Peleable, Serializable {
     }
 
     /**
-     * Método que carga/inicializa la tabla de niveles del personaje
+     * Método que carga/inicializa la tabla de niveles del personaje.
      */
 
     public static void cargarTablaNivel() {
-	Personaje.tablaDeNiveles = new int[101];
+	Personaje.tablaDeNiveles = new int[NIVEL_MAX + 1];
 	Personaje.tablaDeNiveles[0] = 0;
 	Personaje.tablaDeNiveles[1] = 0;
-	for (int i = 2; i < 101; i++) {
-	    Personaje.tablaDeNiveles[i] = Personaje.tablaDeNiveles[i - 1] + 50;
+	for (int i = 2; i < NIVEL_MAX + 1; i++) {
+	    Personaje.tablaDeNiveles[i] = Personaje.tablaDeNiveles[i - 1]
+		    + NIVEL_MAX / 2;
 	}
     }
 
@@ -377,7 +379,7 @@ public abstract class Personaje implements Peleable, Serializable {
      *         personaje
      */
     public int calcularPuntosDeMagia() {
-	return (int) (this.getInteligencia() * 1.5);
+	return (int) (this.getInteligencia() * MUL_PUNTOS_MAGIA);
     }
 
     /**
@@ -430,7 +432,8 @@ public abstract class Personaje implements Peleable, Serializable {
 
     @Override
     public int serAtacado(int daño) {
-	if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
+	if (MyRandom.nextDouble() >= this.getCasta().
+		getProbabilidadEvitarDaño()) {
 	    daño -= this.defensa;
 	    if (daño > 0) {
 		if (salud <= daño) {
@@ -441,9 +444,9 @@ public abstract class Personaje implements Peleable, Serializable {
 		}
 		return daño;
 	    }
-	    return 0; // no le hace daño ya que la defensa fue mayor
+	    return 0;
 	}
-	return 0; // esquiva el golpe
+	return 0;
     }
 
     /**
@@ -460,11 +463,11 @@ public abstract class Personaje implements Peleable, Serializable {
 	daño -= this.defensa;
 	if (daño <= 0) {
 	    return 0;
-	} // no le roba salud ya que la defensa fue mayor
+	}
 	if ((salud - daño) >= 0) {
 	    salud -= daño;
 	} else {
-	    daño = salud; // le queda menos salud que el daño inflingido
+	    daño = salud;
 	    salud = 0;
 	}
 	return daño;
@@ -484,11 +487,11 @@ public abstract class Personaje implements Peleable, Serializable {
 	daño -= this.defensa;
 	if (daño <= 0) {
 	    return 0;
-	} // no le roba energía ya que la defensa fue mayor
+	}
 	if ((energia - daño) >= 0) {
 	    energia -= daño;
 	} else {
-	    daño = energia; // le queda menos energia que el daño inflingido
+	    daño = energia;
 	    energia = 0;
 	}
 	return daño;
@@ -513,7 +516,7 @@ public abstract class Personaje implements Peleable, Serializable {
      * Este método permite energizar al personaje por una determinada cantidad
      * de energía.
      *
-     * @param energia
+     * @param energia energia que recupera
      *            -> Cantidad de energía por la cual el personaje es energizado
      */
     public void serEnergizado(final int energia) {
@@ -527,7 +530,7 @@ public abstract class Personaje implements Peleable, Serializable {
     /**
      * Este método permite la creación de una alianza por parte del personaje.
      *
-     * @param nombreAlianza
+     * @param nombreAlianza nombre de la alianza
      */
     public void crearAlianza(final String nombreAlianza) {
 	this.clan = new Alianza(nombreAlianza);
@@ -547,7 +550,7 @@ public abstract class Personaje implements Peleable, Serializable {
     /**
      * Este método permite permite aliarte con otra persona.
      *
-     * @param nuevoAliado
+     * @param nuevoAliado aliado que se incorpora
      * @return true/false ->determina si se pudo realizar la alianza
      */
     public boolean aliar(final Personaje nuevoAliado) {
@@ -574,11 +577,12 @@ public abstract class Personaje implements Peleable, Serializable {
      * personaje (fuerza/destreza/inteligencia) y luego calcula los que se basan
      * en ellos (defensa/magia/ataque).
      *
-     * @param fuerza
-     * @param destreza
-     * @param inteligencia
+     * @param fuerza fuerza
+     * @param destreza destreza
+     * @param inteligencia inteligencia
      */
-    public void AsignarPuntosSkills(final int fuerza, final int destreza, final int inteligencia) {
+    public void AsignarPuntosSkills(final int fuerza, final int destreza,
+	    final int inteligencia) {
 	if (this.fuerza + fuerza <= MAX_SKILL_VALUE) {
 	    this.fuerza += fuerza;
 	}
@@ -601,8 +605,8 @@ public abstract class Personaje implements Peleable, Serializable {
 	if (this.nivel == NIVEL_MAX) {
 	    return;
 	}
-	while (this.nivel != NIVEL_MAX
-		&& (this.experiencia >= Personaje.tablaDeNiveles[this.nivel + 1] + acumuladorExperiencia)) {
+	while (this.nivel != NIVEL_MAX && (this.experiencia >= Personaje.
+		tablaDeNiveles[this.nivel + 1] + acumuladorExperiencia)) {
 	    acumuladorExperiencia += Personaje.tablaDeNiveles[this.nivel + 1];
 	    this.nivel++;
 	    this.modificarAtributos();
@@ -616,7 +620,7 @@ public abstract class Personaje implements Peleable, Serializable {
      * Este método permite sumarle una determinada cantidad de experiencia al
      * personaje y determinar si sube de nivel.
      *
-     * @param exp
+     * @param exp esperiencia
      * @return true/false -> Determina si subió o no de nivel como resultado de
      *         la suma de experiencia
      */
@@ -700,6 +704,7 @@ public abstract class Personaje implements Peleable, Serializable {
      *
      * @param atacado
      *            -> peleable a atacar
+     * @return boolean.
      */
     public abstract boolean habilidadRaza1(Peleable atacado);
 
@@ -707,7 +712,8 @@ public abstract class Personaje implements Peleable, Serializable {
      * Este método permite al personaje usar su segunda habilidad de raza.
      *
      * @param atacado
-     *            -> peleable a atacar @return.
+     *            -> peleable a atacar
+     * @return boolean.
      */
     public abstract boolean habilidadRaza2(Peleable atacado);
     /**
