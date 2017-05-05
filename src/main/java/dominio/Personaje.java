@@ -128,6 +128,7 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	    final int experiencia, final int nivel, final int idPersonaje) {
 
     super(nombre, salud, fuerza, nivel);
+    this.energia = energia;
 	this.destreza = destreza;
 	this.inteligencia = inteligencia;
 	this.casta = casta;
@@ -176,10 +177,10 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	clan.añadirPersonaje(this);
     }
 
-//    @Override
-//    public int getSalud() {
-//	return salud;
-//    }
+    @Override
+    public int getSalud() {
+	return salud;
+    }
 //
 //    public void setSalud(final int salud) {
 //	this.salud = salud;
@@ -303,7 +304,7 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	}
 	return 0;
     }
-
+    
     /**
      * Método que permite calcular el daño crítico basado en la casta del
      * personaje.
@@ -391,15 +392,15 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     }
 
     /**
-     * Método que permite determinar si el personaje se encuentra vivo.
-     *
-     * @return salud > 0 -> Establece si el personaje esta vivo
-     */
-
-//    @Override
-//    public boolean estaVivo() {
-//	return salud > 0;
-//    }
+	 * Método que permite determinar si el personaje se encuentra vivo 
+	 * 
+	 * @return salud > 0 -> Establece si el personaje esta vivo 
+	 */ 
+	@Override
+	public boolean estaVivo(){
+		return salud > 0;
+	}
+	
 
     /**
      * Este método permite definir el estado del personaje luego de recibir un
@@ -705,4 +706,5 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     public boolean esPersonaje() {
 	return true;
     }
+    
 }

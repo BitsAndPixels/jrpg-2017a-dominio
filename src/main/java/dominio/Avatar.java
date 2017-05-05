@@ -1,6 +1,6 @@
 package dominio;
 
-public abstract class Avatar{
+public abstract class Avatar {
 	/**
      * salud.
      */
@@ -45,10 +45,6 @@ public abstract class Avatar{
 	this.nombre = nombre;
 	}
 
-    public int getSalud() {
-	return salud;
-    }
-
     public void setSalud(final int salud) {
 	this.salud = salud;
     }
@@ -69,17 +65,5 @@ public abstract class Avatar{
 		this.fuerza = fuerza;
 	}
 	
-	
-	
-	/**
-	 * Método que permite determinar si el personaje se encuentra vivo 
-	 * 
-	 * @return salud > 0 -> Establece si el personaje esta vivo 
-	 */ 
-	
-	public boolean estaVivo(){
-		return salud > 0;
-	}
-	
-	
+
 }

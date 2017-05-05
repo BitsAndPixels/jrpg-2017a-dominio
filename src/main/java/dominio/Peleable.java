@@ -16,10 +16,6 @@ public interface Peleable {
 
      */
 
-    /**
-     * @param daño.
-     * @return daño.
-     */
     int serAtacado(int daño);
 
     /**
