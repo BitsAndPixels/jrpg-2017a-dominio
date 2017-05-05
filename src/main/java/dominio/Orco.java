@@ -6,7 +6,7 @@ package dominio;
  * @see Personajes
  */
 
-public class Orco extends Personaje {
+public class Orco extends Raza {
     /**
      * @param SALUD_TOPE constante de salud a tope.
      */
@@ -20,7 +20,7 @@ public class Orco extends Personaje {
      * @param id id unico de personanje
      */
     public Orco(final String nombre, final Casta casta, final int id) {
-	super(nombre, casta, id);
+    super(nombre, casta, id, SALUD_TOPE);
 	saludTope += SALUD_TOPE;
 	salud = saludTope;
 	energia = energiaTope;

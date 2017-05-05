@@ -38,7 +38,6 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     protected int ataque; // depende de la fuerza
     protected int magia; // depende de la inteligencia
 
-    protected String nombre; 
     protected String nombreRaza;
 
     protected int saludTope;
