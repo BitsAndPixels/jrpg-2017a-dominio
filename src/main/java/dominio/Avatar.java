@@ -1,11 +1,25 @@
 package dominio;
 
 public abstract class Avatar{
-	
+	/**
+     * salud.
+     */
 	protected int salud;
+	/**
+     * fuerza.
+     */
 	protected int fuerza;
+	/**
+     * defensa.
+     */
 	protected int defensa;
+	/**
+     * nombre.
+     */
 	protected String nombre;
+	/**
+     * nivel.
+     */
 	protected int nivel;
 
 	
@@ -23,18 +37,37 @@ public abstract class Avatar{
 		this.nivel = nivel;
 	}
 	
+	public String getNombre() {
+	return nombre;
+	}
 	
+	public void setNombre(String nombre){
+	this.nombre = nombre;
+	}
+
+    public int getSalud() {
+	return salud;
+    }
+
+    public void setSalud(final int salud) {
+	this.salud = salud;
+    }
 	
-	/**
-	 * Método que permite al personaje atacar , determinando si el ataque va a ser critico o no basado 
-	 * en las probabilidades de critico de su determinada casta .
-	 * 
-	 * @param atacado -> Peleable q recibe el ataque 
-	 * @see MyRandom -> Clase MyRandom perteneciente a este proyecto
-	 * @return atacado.serAtacado(this.golpe_critico()) -> Daño en caso de ser golpe crítico
-	 * @return atacado.serAtacado(this.ataque) -> Daño en caso de ser golpe normal
-	 * 
-	 */
+    public int getNivel(){
+		return nivel;
+	}
+	
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+	
+	public  int getFuerza(){
+		return fuerza;
+	}
+	
+	public void setFuerza(int fuerza){
+		this.fuerza = fuerza;
+	}
 	
 	
 	
@@ -48,40 +81,5 @@ public abstract class Avatar{
 		return salud > 0;
 	}
 	
-	public int getDefensa(){
-		return nivel;
-	}
-	
-	public int getNivel(){
-		return nivel;
-	}
-	
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
-	
-	public void setNombre(String nombre){
-		this.nombre = nombre;
-	}
-	
-	public String getNombre(){
-		return nombre;
-	}
-	
-	public  int getAtaque(){
-		return fuerza;
-	}
-	
-	public  void  setFuerza(int fuerza){
-		this.fuerza = fuerza;
-	}
-	
-	public  int getFuerza(){
-		return fuerza;
-	}
-
-	public void setSalud(int salud) {
-		this.salud = salud;
-	}
 	
 }
