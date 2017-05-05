@@ -10,7 +10,6 @@ package dominio;
  * Fuerza + Salud + Defensa.
  * @see Peleable interfaz perteneciente a este proyecto
  */
-public class NonPlayableCharacter implements Peleable {
     /**
      * salud.
      */
@@ -123,6 +122,7 @@ public class NonPlayableCharacter implements Peleable {
      * MULT_DEFENSA_DIFICULTAD_2.
      */
     private static final int MULT_DEFENSA_DIFICULTAD_2 = 4;
+public class NonPlayableCharacter extends Avatar implements Peleable {
 
     /**
      * Metodo constructor que permite inicializar un objeto NonPlayableCharacter
@@ -174,6 +174,14 @@ public class NonPlayableCharacter implements Peleable {
 	}
     }
 
+	public NonPlayableCharacter(String nombre, int nivel, int dificultadNPC) {
+		
+		super(nombre, nivel);
+		int dificultad;
+		if (dificultadNPC == dificultadAleatoria)
+			dificultad = MyRandom.nextInt(3);
+		else
+			dificultad = dificultadNPC;
     /**
      * @return nivel.
      */
@@ -269,9 +277,17 @@ public class NonPlayableCharacter implements Peleable {
 	}
 	else {
 	    return atacado.serAtacado(this.getAtaque());
+	public int getSalud() {
+		return salud;
 	}
     }
 
+	public int atacar(Peleable atacado) {
+		if (MyRandom.nextDouble() <= 0.15) {// los NPC tienen 15% de golpes criticos
+			return atacado.serAtacado((int) (this.getAtaque() * 1.5));
+		} else
+			return atacado.serAtacado(this.getAtaque());
+	}
     /**Este método permite definir el estdo del personaje luego de recibir un
      * ataque El nivel de saluda decrementa en función del nivel de defensa que
      * posea el personaje.

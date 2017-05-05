@@ -51,11 +51,6 @@ public interface Peleable {
      * @return salud > 0 -> Establece si el personaje esta vivo
      */
     public boolean estaVivo();
-    /**
-     * Método para conseguir el nombre.
-     * @return
-     */
-    public String getNombre();
     
     /**
      * Reemplazo del instance of.
