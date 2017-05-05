@@ -6,12 +6,23 @@ package dominio;
  * tres habilidades.
  */
 public class Guerrero extends Casta {
-
-    public Guerrero(final double prob_crit, final double evasion, final double daño_crit) {
-	super(prob_crit, evasion, daño_crit);
+    /**
+     * FUERZA_HABILIDAD_CASTA.
+     */
+    protected static final int FUERZA_HABILIDAD_CASTA = 5;
+    /**
+     * @param probCrit probabilidad de critico.
+     * @param evasion evasion.
+     * @param dañoCrit valor del daño critico.
+     */
+    public Guerrero(final double probCrit, final double evasion,
+	    final double dañoCrit) {
+	super(probCrit, evasion, dañoCrit);
 	this.nombreCasta = "Guerrero";
     }
-
+    /**
+     * Contructor de Guerrero.
+     */
     public Guerrero() {
 	super();
 	this.nombreCasta = "Guerrero";
@@ -83,7 +94,7 @@ public class Guerrero extends Casta {
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
 	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
-	    if (atacado.esPersonaje()==true) {
+	    if (atacado.esPersonaje()) {
 		int defensaOriginal = ((Personaje) atacado).getDefensa();
 		((Personaje) atacado).setDefensa(0);
 		if (atacado.serAtacado(caster.ataque) > 0) {
@@ -96,6 +107,7 @@ public class Guerrero extends Casta {
     }
     @Override
     public void habilidadCasta(final Personaje personaje) {
-      personaje.setFuerza(personaje.getFuerza() + 5);
+	personaje.setFuerza(personaje.getFuerza()
+		+ FUERZA_HABILIDAD_CASTA);
     }
 }

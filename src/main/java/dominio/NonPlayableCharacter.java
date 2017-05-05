@@ -267,7 +267,7 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
      * @return daño -> Daño generado
      */
     public int serAtacado(int daño) {
-	if (MyRandom.nextDouble() >= 0.15) {
+	if (MyRandom.nextDouble() >= SUERTE_MULTIPLICADOR_ATAQUE) {
 	    daño -= this.getDefensa() / 2;
 	    if (daño > 0) {
 		salud -= daño;

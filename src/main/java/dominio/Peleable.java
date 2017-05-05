@@ -16,11 +16,21 @@ public interface Peleable {
 
      */
 
-    public int serAtacado(int daño);
+    /**
+     * @param daño.
+     * @return daño.
+     */
+    int serAtacado(int daño);
 
-    public int getSalud();
+    /**
+     * @return salud.
+     */
+    int getSalud();
 
-    public void despuesDeTurno();
+    /**
+     * despuesDeTurno.
+     */
+    void despuesDeTurno();
 
     /**
      * Método que permite al personaje atacar , determinando si el ataque va a
@@ -31,20 +41,26 @@ public interface Peleable {
      * @see MyRandom -> Clase MyRandom perteneciente a este proyecto
      * @return atacado.serAtacado(this.golpe_critico()) -> Daño en caso de ser
      *         golpe crítico
-     * @return atacado.serAtacado(this.ataque) -> Daño en caso de ser golpe
+     * atacado.serAtacado(this.ataque) -> Daño en caso de ser golpe
      *         normal
      */
 
-    public int atacar(Peleable atacado);
+    int atacar(Peleable atacado);
     /**
      * Este método permite otorgar experiencia basada en el nivel del personaje.
      * @return this.nivel * 40 -> Cantidad de experiencia entregada
      */
-    public int otorgarExp();
+    int otorgarExp();
 
-    public int getAtaque();
+    /**
+     * @return int.
+     */
+    int getAtaque();
 
-    public void setAtaque(int ataque);
+    /**
+     * @param ataque.
+     */
+    void setAtaque(int ataque);
 
     /**
      * Método que permite determinar si el personaje se encuentra vivo.
@@ -58,5 +74,5 @@ public interface Peleable {
      * false para falso en NonPlayableCharacter.
      * @return boolean
      */
-    public boolean esPersonaje();
+    boolean esPersonaje();
 }

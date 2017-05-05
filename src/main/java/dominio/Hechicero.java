@@ -12,12 +12,27 @@ package dominio;
  * tres habilidades.
  */
 public class Hechicero extends Casta {
-
-    public Hechicero(final double prob_crit, final double evasion, final double daño_crit) {
-	super(prob_crit, evasion, daño_crit);
+    /**
+     * INTELIGENCIA_HABILIDAD_CASTA.
+     */
+    protected static final int INTELIGENCIA_HABILIDAD_CASTA = 5;
+    /**
+     * MUL_PUNTOS_MAGIA.
+     */
+    protected static final double MUL_PUNTOS_MAGIA = 1.5;
+    /**
+     * @param probCrit probabilidad de critico.
+     * @param evasion evasion.
+     * @param dañoCrit valor del daño critico.
+     */
+    public Hechicero(final double probCrit, final double evasion,
+	    final double dañoCrit) {
+	super(probCrit, evasion, dañoCrit);
 	this.nombreCasta = "Hechicero";
     }
-
+    /**
+     * Contructor de Hechicero.
+     */
     public Hechicero() {
 	super();
 	this.nombreCasta = "Hechicero";
@@ -44,7 +59,7 @@ public class Hechicero extends Casta {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
 	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
 	    if (atacado.serAtacado((int) (caster.
-		    calcularPuntosDeMagia() * 1.5)) > 0) {
+		    calcularPuntosDeMagia() * MUL_PUNTOS_MAGIA)) > 0) {
 		return true;
 	    }
 	}
@@ -67,7 +82,7 @@ public class Hechicero extends Casta {
     public boolean habilidad2(final Personaje caster, final Peleable aliado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
 	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
-	    if (aliado.esPersonaje() == true) {
+	    if (aliado.esPersonaje()) {
 		((Personaje) aliado).serCurado(caster.calcularPuntosDeMagia());
 		return true;
 	    }
@@ -92,7 +107,7 @@ public class Hechicero extends Casta {
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
 	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
-	    if (atacado.esPersonaje() == true) {
+	    if (atacado.esPersonaje()) {
 		int energiaRobada = ((Personaje) atacado).
 			serDesernegizado(caster.calcularPuntosDeMagia());
 		int saludRobada = ((Personaje) atacado).
@@ -107,6 +122,7 @@ public class Hechicero extends Casta {
     }
     @Override
     public void habilidadCasta(final Personaje personaje) {
-      personaje.setInteligencia(personaje.getInteligencia() + 5);
+	personaje.setInteligencia(personaje.getInteligencia()
+		+ INTELIGENCIA_HABILIDAD_CASTA);
     }
 }
