@@ -6,12 +6,15 @@ package dominio;
  * @see Personajes
  */
 
-public class Orco extends Raza {
+public class Orco extends Personaje {
     /**
-     * @param SALUD_TOPE constante de salud a tope.
+     * @param SALUD_BONUS constante de salud a tope.
      */
-    protected static final int SALUD_TOPE = 10;
-
+    protected static final int SALUD_BONUS = 10;
+    /**
+     * @param ENERGIA_BONUS incremento de energia tope.
+     */
+    protected static final int ENERGIA_BONUS = 0;
     /**
      * Método constructor de un personaje nuevo de raza orco el cual determina
      * los atributos del personaje dependiendo de su casta.
@@ -20,15 +23,7 @@ public class Orco extends Raza {
      * @param id id unico de personanje
      */
     public Orco(final String nombre, final Casta casta, final int id) {
-    super(nombre, casta, id, SALUD_TOPE);
-	saludTope += SALUD_TOPE;
-	salud = saludTope;
-	energia = energiaTope;
-	nombreRaza = "Orco";
-
-	habilidadesRaza = new String[2];
-	habilidadesRaza[0] = "Golpe Defensa";
-	habilidadesRaza[1] = "Mordisco de Vida";
+    super(nombre, casta, id,"Orco", SALUD_BONUS, ENERGIA_BONUS, "Golpe Defensa", "Mordisco de Vida");
     }
 
     /**
@@ -48,13 +43,8 @@ public class Orco extends Raza {
 	    final int fuerza, final int destreza, final int inteligencia,
 	    final Casta casta, final int experiencia, final int nivel,
 	    final int idPersonaje) {
-	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
-		experiencia, nivel, idPersonaje);
-	nombreRaza = "Orco";
-
-	habilidadesRaza = new String[2];
-	habilidadesRaza[0] = "Golpe Defensa";
-	habilidadesRaza[1] = "Mordisco de Vida";
+    super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
+        experiencia, nivel, idPersonaje, "Orco", "Golpe Defensa", "Mordisco de Vida");
     }
     /**Este método permite al orco usar su primera habilidad de raza.
      * @param atacado

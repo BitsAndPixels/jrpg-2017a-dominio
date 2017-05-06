@@ -5,33 +5,29 @@ package dominio;
  * clase. Contiene las dos habilidades de raza.
  */
 public class Elfo extends Personaje {
-
-    /**
-     * ENERGIA_TOPE.
+	/**
+     * @param SALUD_BONUS incremento de salud tope.
      */
-    protected static final int ENERGIA_TOPE = 10;
+    protected static final int SALUD_BONUS = 0;
+    /**
+     * @param ENERGIA_BONUS incremento de energia tope.
+     */
+    protected static final int ENERGIA_BONUS = 10;
 
     /**
      * MULTILICADOR_NIVEL.
      */
     protected static final int MULTILICADOR_NIVEL = 10;
+    
     /**
      * @param nombre nombre.
      * @param casta casta.
      * @param id identificador unico.
      */
     public Elfo(final String nombre, final Casta casta, final int id) {
-	super(nombre, casta, id);
-	energiaTope += ENERGIA_TOPE;
-	salud = saludTope;
-	energia = energiaTope;
-	nombreRaza = "Elfo";
-
-	habilidadesRaza = new String[2];
-	habilidadesRaza[0] = "Golpe Level";
-	habilidadesRaza[1] = "Ataque Bosque";
+    super(nombre, casta, id,"Elfo", SALUD_BONUS, ENERGIA_BONUS, "Golpe Level", "Ataque Bosque");
     }
-
+    
     /**
      * Método constructor de un personaje existente de raza elfo.
      * @param nombre nombre
@@ -49,13 +45,8 @@ public class Elfo extends Personaje {
 	    final int fuerza, final int destreza, final int inteligencia,
 	    final Casta casta, final int experiencia, final int nivel,
 	    final int idPersonaje) {
-	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
-		experiencia, nivel, idPersonaje);
-	nombreRaza = "Elfo";
-
-	habilidadesRaza = new String[2];
-	habilidadesRaza[0] = "Golpe Level";
-	habilidadesRaza[1] = "Ataque Bosque";
+    super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
+    	    experiencia, nivel, idPersonaje, "Elfo", "Golpe Level", "Ataque Bosque");
     }
 
     /**

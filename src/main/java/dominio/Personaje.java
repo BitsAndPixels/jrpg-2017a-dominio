@@ -80,8 +80,8 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 		    + NIVEL_MAX / 2;
 	}
     }
-
-    /**
+	
+	/**
      * Método constructor de un personaje nuevo el cual determina los atributos
      * del personaje dependiendo de su casta
      *
@@ -90,7 +90,8 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
      * @param casta
      * @param id
      */
-	public Personaje(String nombre, Casta casta, int id) {
+	public Personaje(final String nombre, Casta casta, final int id, final String nombreRaza, final int saludBonus, 
+			final int energiaBonus, final String habilidadUno, final String habilidadDos) {
 		
 		super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1);
 		this.casta = casta;
@@ -101,12 +102,18 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 		casta.habilidadCasta(this);
 		x = 0;
 		y = 0;
-		saludTope = SALUD_TOPE;
-		energiaTope = ENERGIA_TOPE;
+		saludTope = SALUD_TOPE + saludBonus;
+		energiaTope = ENERGIA_TOPE + energiaBonus;
+		salud = saludTope;
+	    energia = energiaTope;
+	    habilidadesRaza = new String[2];
+	    habilidadesRaza[0] = habilidadUno;
+	    habilidadesRaza[1] = habilidadDos;
 		ataque = this.calcularPuntosDeAtaque();
 		defensa = this.calcularPuntosDeDefensa();
 		magia = this.calcularPuntosDeMagia();
 	}
+
 
     /**
      * Método constructor de un personaje existente.
@@ -123,22 +130,25 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
      * @param nivel
      * @param idPersonaje
      */
-    public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza, final int inteligencia, final Casta casta,
-	    final int experiencia, final int nivel, final int idPersonaje) {
+	public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza, final int inteligencia, final Casta casta,
+        final int experiencia, final int nivel, final int idPersonaje, final String nombreRaza, final String habilidadUno, final String habilidadDos) {
 
     super(nombre, salud, fuerza, nivel);
     this.energia = energia;
-	this.destreza = destreza;
-	this.inteligencia = inteligencia;
-	this.casta = casta;
-	this.experiencia = experiencia;
-	this.saludTope = this.salud;
-	this.energiaTope = this.energia;
-
-	this.idPersonaje = idPersonaje;
-	this.defensa = this.calcularPuntosDeDefensa();
-	this.ataque = this.calcularPuntosDeAtaque();
-	this.magia = this.calcularPuntosDeMagia();
+    this.destreza = destreza;
+    this.inteligencia = inteligencia;
+    this.casta = casta;
+    this.experiencia = experiencia;
+    this.saludTope = this.salud;
+    this.energiaTope = this.energia;
+    this.idPersonaje = idPersonaje;
+    this.nombreRaza = nombreRaza;
+    this.habilidadesRaza = new String[2];
+    this.habilidadesRaza[0] = habilidadUno;
+    this.habilidadesRaza[1] = habilidadDos;    
+    this.defensa = this.calcularPuntosDeDefensa();
+    this.ataque = this.calcularPuntosDeAtaque();
+    this.magia = this.calcularPuntosDeMagia();
     }
 
     public String getNombreRaza() {
