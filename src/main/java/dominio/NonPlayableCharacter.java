@@ -11,7 +11,7 @@ package dominio;
  * @see Peleable interfaz perteneciente a este proyecto
  */
 public class NonPlayableCharacter extends Avatar implements Peleable {
-    
+
     /**
      * DIFICULTAD_ALEATORIA contante.
      */

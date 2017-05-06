@@ -62,8 +62,8 @@ public interface Peleable {
      * Método que permite determinar si el personaje se encuentra vivo.
      * @return salud > 0 -> Establece si el personaje esta vivo
      */
-    public boolean estaVivo();
-    
+    boolean estaVivo();
+
     /**
      * Reemplazo del instance of.
      * true para verdadero en personaje,

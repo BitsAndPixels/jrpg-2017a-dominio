@@ -16,14 +16,15 @@ public class Humano extends Personaje {
      * @param ENERGIA_BONUS incremento de energia tope.
      */
     protected static final int ENERGIA_BONUS = 5;
-    
+
     /**
      * @param nombre nombre
      * @param casta casta
      * @param id id unico de personaje
      */
     public Humano(final String nombre, final Casta casta, final int id) {
-    super(nombre, casta, id,"Humano", SALUD_BONUS, ENERGIA_BONUS, "Incentivar", "Golpe Fatal");
+	super(nombre, casta, id, "Humano", SALUD_BONUS, ENERGIA_BONUS,
+		"Incentivar", "Golpe Fatal");
     }
 
     /**
@@ -40,11 +41,11 @@ public class Humano extends Personaje {
      * @param idPersonaje id unico de personaje
      */
     public Humano(final String nombre, final int salud, final int energia,
-    	    final int fuerza, final int destreza, final int inteligencia,
-    	    final Casta casta, final int experiencia, final int nivel,
-    	    final int idPersonaje) {
-    super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
-    	experiencia, nivel, idPersonaje, "Humano", "Incentivar", "Golpe Fatal");
+	    final int fuerza, final int destreza, final int inteligencia,
+	    final Casta casta, final int experiencia, final int nivel,
+	    final int idPersonaje) {
+	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
+		experiencia, nivel, idPersonaje, "Humano", "Incentivar", "Golpe Fatal");
     }
     /**
      * Habilidad de Humano "Incentivar": Si la energia del personaje es mayor a
@@ -63,7 +64,6 @@ public class Humano extends Personaje {
 	return false;
     }
 
-    // Golpe Fatal
     /**
      * Habilidad de Humano "Golpe Fatal": Si la energia del personaje es mayor a
      * 10, brinda la posibilidad de un golpe capaz de quitar hasta la mitad de

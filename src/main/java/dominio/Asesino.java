@@ -104,6 +104,9 @@ public class Asesino extends Casta {
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 	return false;
     }
+    /* (non-Javadoc)
+     * @see dominio.Casta#habilidadCasta(dominio.Personaje)
+     */
     @Override
     public void habilidadCasta(final Personaje personaje) {
 	personaje.setDestreza(personaje.getDestreza()

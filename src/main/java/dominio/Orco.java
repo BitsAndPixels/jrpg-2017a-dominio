@@ -23,7 +23,8 @@ public class Orco extends Personaje {
      * @param id id unico de personanje
      */
     public Orco(final String nombre, final Casta casta, final int id) {
-    super(nombre, casta, id,"Orco", SALUD_BONUS, ENERGIA_BONUS, "Golpe Defensa", "Mordisco de Vida");
+	super(nombre, casta, id, "Orco", SALUD_BONUS, ENERGIA_BONUS,
+		"Golpe Defensa", "Mordisco de Vida");
     }
 
     /**
@@ -43,8 +44,9 @@ public class Orco extends Personaje {
 	    final int fuerza, final int destreza, final int inteligencia,
 	    final Casta casta, final int experiencia, final int nivel,
 	    final int idPersonaje) {
-    super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
-        experiencia, nivel, idPersonaje, "Orco", "Golpe Defensa", "Mordisco de Vida");
+	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
+		experiencia, nivel, idPersonaje, "Orco", "Golpe Defensa",
+		"Mordisco de Vida");
     }
     /**Este método permite al orco usar su primera habilidad de raza.
      * @param atacado

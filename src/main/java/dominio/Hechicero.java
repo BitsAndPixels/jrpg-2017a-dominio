@@ -89,18 +89,6 @@ public class Hechicero extends Casta {
 	}
 	return false;
     }
-    
-
-//    public boolean habilidad2(Personaje caster, Peleable aliado) {
-//        if (caster.getEnergia() > 10) {
-//            caster.setEnergia(caster.getEnergia() - 10);
-//            if (aliado instanceof Personaje) {
-//                ((Personaje) aliado).serCurado(caster.calcularPuntosDeMagia());
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 
     /**
      * Robar Energia y Salud - Habilidad 3

@@ -20,49 +20,147 @@ import java.io.Serializable;
  * @see all @
  *
  */
-public abstract class Personaje extends Avatar implements Peleable, Serializable {
+public abstract class Personaje extends Avatar implements Peleable,
+Serializable {
+    /**
+     * ENERGIA_CONSUMIDA.
+     */
     protected static final int ENERGIA_CONSUMIDA = 10;
+    /**
+     * MAX_SKILL_VALUE.
+     */
     protected static final int MAX_SKILL_VALUE = 200;
+    /**
+     * FUERZA_INICIAL.
+     */
     protected static final int FUERZA_INICIAL = 10;
+    /**
+     * INTELIGENCIA_INICIAL.
+     */
     protected static final int INTELIGENCIA_INICIAL = 10;
+    /**
+     * DESTREZA_INICIAL.
+     */
     protected static final int DESTREZA_INICIAL = 10;
+    /**
+     * SALUD_TOPE.
+     */
     protected static final int SALUD_TOPE = 100;
+    /**
+     * ENERGIA_TOPE.
+     */
     protected static final int ENERGIA_TOPE = 100;
+    /**
+     * NIVEL_MAX.
+     */
     protected static final int NIVEL_MAX = 100;
+    /**
+     * AUMENTO_SALUD.
+     */
     protected static final int AUMENTO_SALUD = 25;
+    /**
+     * AUMENTO_ENERGIA.
+     */
     protected static final int AUMENTO_ENERGIA = 20;
+    /**
+     * EXPERIENCIA.
+     */
     protected static final int EXPERIENCIA = 40;
+    /**
+     * DIVISOR_GOLPE_CRITICO.
+     */
     protected static final int DIVISOR_GOLPE_CRITICO = 1000;
+    /**
+     * MUL_PUNTOS_MAGIA.
+     */
     protected static final double MUL_PUNTOS_MAGIA = 1.5;
+    /**
+     * MUL_PUNTOS_FUERZA.
+     */
+    protected static final double MUL_PUNTOS_FUERZA = 1.5;
+    /**
+     * ENERGIA_ATAQUE.
+     */
+    protected static final int ENERGIA_ATAQUE = 10;
+    /**
+     * Energia.
+     */
     protected int energia;
-    protected int ataque; // depende de la fuerza
-    protected int magia; // depende de la inteligencia
+    /**
+     * Depende de la fuerza.
+     */
+    protected int ataque;
+    /**
+     * depende de la inteligencia.
+     */
+    protected int magia;
 
+    /**
+     * nombreRaza.
+     */
     protected String nombreRaza;
 
+    /**
+     * saludTope.
+     */
     protected int saludTope;
+    /**
+     * energiaTope.
+     */
     protected int energiaTope;
-
+    /**
+     * destreza.
+     */
     protected int destreza;
+    /**
+     * inteligencia.
+     */
     protected int inteligencia;
+    /**
+     * casta.
+     */
     protected Casta casta;
-
+    /**
+     * x.
+     */
     protected int x;
+    /**
+     * y.
+     */
     protected int y;
 
-	protected int experiencia;
-
+    /**
+     * experiencia.
+     */
+    protected int experiencia;
+    /**
+     * idPersonaje.
+     */
     protected int idPersonaje;
 
+    /**
+     * clan.
+     */
     protected Alianza clan = null;
+    /**
+     * tablaDeNiveles.
+     */
     public static int tablaDeNiveles[];
-
+    /**
+     * habilidadesRaza.
+     */
     protected String[] habilidadesRaza;
 
+    /**
+     * @return habilidadesRaza.
+     */
     public String[] getHabilidadesRaza() {
 	return habilidadesRaza;
     }
 
+    /**
+     * @return habilidades de casta.
+     */
     public String[] getHabilidadesCasta() {
 	return casta.getHabilidadesCasta();
     }
@@ -70,7 +168,6 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     /**
      * Método que carga/inicializa la tabla de niveles del personaje.
      */
-
     public static void cargarTablaNivel() {
 	Personaje.tablaDeNiveles = new int[NIVEL_MAX + 1];
 	Personaje.tablaDeNiveles[0] = 0;
@@ -80,39 +177,45 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 		    + NIVEL_MAX / 2;
 	}
     }
-	
-	/**
+
+    /**
      * Método constructor de un personaje nuevo el cual determina los atributos
-     * del personaje dependiendo de su casta
+     * del personaje dependiendo de su casta.
      *
      *
      * @param nombre
      * @param casta
      * @param id
+     * @param nombreRaza
+     * @param saludBonus
+     * @param energiaBonus
+     * @param habilidadUno
+     * @param habilidadDos
      */
-	public Personaje(final String nombre, Casta casta, final int id, final String nombreRaza, final int saludBonus, 
-			final int energiaBonus, final String habilidadUno, final String habilidadDos) {
-		
-		super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1);
-		this.casta = casta;
-		this.idPersonaje = id;
-		experiencia = 0;
-		inteligencia = INTELIGENCIA_INICIAL;
-		destreza = DESTREZA_INICIAL;
-		casta.habilidadCasta(this);
-		x = 0;
-		y = 0;
-		saludTope = SALUD_TOPE + saludBonus;
-		energiaTope = ENERGIA_TOPE + energiaBonus;
-		salud = saludTope;
-	    energia = energiaTope;
-	    habilidadesRaza = new String[2];
-	    habilidadesRaza[0] = habilidadUno;
-	    habilidadesRaza[1] = habilidadDos;
-		ataque = this.calcularPuntosDeAtaque();
-		defensa = this.calcularPuntosDeDefensa();
-		magia = this.calcularPuntosDeMagia();
-	}
+    public Personaje(final String nombre, Casta casta, final int id,
+	    final String nombreRaza, final int saludBonus, final int energiaBonus,
+	    final String habilidadUno, final String habilidadDos) {
+
+	super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1);
+	this.casta = casta;
+	this.idPersonaje = id;
+	experiencia = 0;
+	inteligencia = INTELIGENCIA_INICIAL;
+	destreza = DESTREZA_INICIAL;
+	casta.habilidadCasta(this);
+	x = 0;
+	y = 0;
+	saludTope = SALUD_TOPE + saludBonus;
+	energiaTope = ENERGIA_TOPE + energiaBonus;
+	salud = saludTope;
+	energia = energiaTope;
+	habilidadesRaza = new String[2];
+	habilidadesRaza[0] = habilidadUno;
+	habilidadesRaza[1] = habilidadDos;
+	ataque = this.calcularPuntosDeAtaque();
+	defensa = this.calcularPuntosDeDefensa();
+	magia = this.calcularPuntosDeMagia();
+    }
 
 
     /**
@@ -129,26 +232,31 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
      * @param experiencia
      * @param nivel
      * @param idPersonaje
+     * @param nombreRaza
+     * @param saludBonus
+     * @param energiaBonus
+     * @param habilidadUno
+     * @param habilidadDos
      */
-	public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza, final int inteligencia, final Casta casta,
-        final int experiencia, final int nivel, final int idPersonaje, final String nombreRaza, final String habilidadUno, final String habilidadDos) {
+    public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza, final int inteligencia, final Casta casta,
+	    final int experiencia, final int nivel, final int idPersonaje, final String nombreRaza, final String habilidadUno, final String habilidadDos) {
 
-    super(nombre, salud, fuerza, nivel);
-    this.energia = energia;
-    this.destreza = destreza;
-    this.inteligencia = inteligencia;
-    this.casta = casta;
-    this.experiencia = experiencia;
-    this.saludTope = this.salud;
-    this.energiaTope = this.energia;
-    this.idPersonaje = idPersonaje;
-    this.nombreRaza = nombreRaza;
-    this.habilidadesRaza = new String[2];
-    this.habilidadesRaza[0] = habilidadUno;
-    this.habilidadesRaza[1] = habilidadDos;    
-    this.defensa = this.calcularPuntosDeDefensa();
-    this.ataque = this.calcularPuntosDeAtaque();
-    this.magia = this.calcularPuntosDeMagia();
+	super(nombre, salud, fuerza, nivel);
+	this.energia = energia;
+	this.destreza = destreza;
+	this.inteligencia = inteligencia;
+	this.casta = casta;
+	this.experiencia = experiencia;
+	this.saludTope = this.salud;
+	this.energiaTope = this.energia;
+	this.idPersonaje = idPersonaje;
+	this.nombreRaza = nombreRaza;
+	this.habilidadesRaza = new String[2];
+	this.habilidadesRaza[0] = habilidadUno;
+	this.habilidadesRaza[1] = habilidadDos;
+	this.defensa = this.calcularPuntosDeDefensa();
+	this.ataque = this.calcularPuntosDeAtaque();
+	this.magia = this.calcularPuntosDeMagia();
     }
 
     public String getNombreRaza() {
@@ -158,7 +266,7 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     public void setNombreRaza(final String nombreRaza) {
 	this.nombreRaza = nombreRaza;
     }
-	
+
     @Override
     public int getAtaque() {
 	return ataque;
@@ -176,7 +284,7 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     public void setMagia(final int magia) {
 	this.magia = magia;
     }
-	
+
     public Alianza getClan() {
 	return clan;
     }
@@ -190,10 +298,10 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     public int getSalud() {
 	return salud;
     }
-//
-//    public void setSalud(final int salud) {
-//	this.salud = salud;
-//    }
+    //
+    //    public void setSalud(final int salud) {
+    //	this.salud = salud;
+    //    }
 
     public int getEnergia() {
 	return energia;
@@ -203,13 +311,13 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	this.energia = energia;
     }
 
-//    public int getFuerza() {
-//	return fuerza;
-//    }
-//
-//    public void setFuerza(final int fuerza) {
-//	this.fuerza = fuerza;
-//    }
+    //    public int getFuerza() {
+    //	return fuerza;
+    //    }
+    //
+    //    public void setFuerza(final int fuerza) {
+    //	this.fuerza = fuerza;
+    //    }
 
     public int getDestreza() {
 	return destreza;
@@ -303,7 +411,8 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	    return 0;
 	}
 	if (atacado.getSalud() > 0) {
-	    if (MyRandom.nextDouble() <= this.casta.getProbabilidadGolpeCritico()
+	    if (MyRandom.nextDouble()
+		    <= this.casta.getProbabilidadGolpeCritico()
 		    + this.destreza / DIVISOR_GOLPE_CRITICO) {
 		return atacado.serAtacado(this.golpeCritico()); // ataque
 		// crítico
@@ -313,7 +422,7 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	}
 	return 0;
     }
-    
+
     /**
      * Método que permite calcular el daño crítico basado en la casta del
      * personaje.
@@ -340,17 +449,18 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
      *         realizar un ataque
      */
     public boolean puedeAtacar() {
-	return energia > 10;
+	return energia > ENERGIA_ATAQUE;
     }
 
     /**
      * Método que permite determinar la cantidad de puntos de ataque del
      * personaje basando en la cantidad de fuerza del mismo.
      *
-     * @return (int) (this.getFuerza() * 1.5) -> Valor de ataque del personaje
+     * @return (int) (this.getFuerza() * MUL_PUNTOS_FUERZA) 
+     * -> Valor de ataque del personaje
      */
     public int calcularPuntosDeAtaque() {
-	return (int) (this.getFuerza() * 1.5);
+	return (int) (this.getFuerza() * MUL_PUNTOS_FUERZA);
     }
 
     /**
@@ -367,8 +477,8 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
      * Método que permite determinar la cantidad de puntos de magia del
      * personaje basando en la cantidad de inteligencia del mismo.
      *
-     * @return (int) (this.getInteligencia() * 1.5) -> Valor de magia del
-     *         personaje
+     * @return (int) (this.getInteligencia() * MUL_PUNTOS_MAGIA)
+     *  -> Valor de magia del personaje
      */
     public int calcularPuntosDeMagia() {
 	return (int) (this.getInteligencia() * MUL_PUNTOS_MAGIA);
@@ -401,15 +511,14 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     }
 
     /**
-	 * Método que permite determinar si el personaje se encuentra vivo 
-	 * 
-	 * @return salud > 0 -> Establece si el personaje esta vivo 
-	 */ 
-	@Override
-	public boolean estaVivo(){
-		return salud > 0;
-	}
-	
+     * Método que permite determinar si el personaje se encuentra vivo.
+     *
+     * @return salud > 0 -> Establece si el personaje esta vivo.
+     */
+    @Override
+    public boolean estaVivo() {
+	return salud > 0;
+    }
 
     /**
      * Este método permite definir el estado del personaje luego de recibir un
@@ -549,19 +658,16 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	if (this.clan == null) {
 	    final Alianza a = new Alianza("Alianza 1");
 	    this.clan = a;
-	    a.añadirPersonaje(this); // el personaje no dispone de alianza por
-	    // lo cual se crea una predefinda
+	    a.añadirPersonaje(this);
 	}
 
 	if (nuevoAliado.clan == null) {
 	    nuevoAliado.clan = this.clan;
 	    this.clan.añadirPersonaje(nuevoAliado);
-	    return true; // el aliado pudo unirse ya que no pertenecia a ninguna
-	    // alianza
+	    return true;
 	} else {
 	    return false;
-	} // el aliado no pudo unirse ya que pertenece
-	// actualmente a otra alianza
+	}
     }
 
     /**
@@ -636,6 +742,9 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
 	return this.nivel * EXPERIENCIA;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#clone()
+     */
     @Override
     protected Object clone() throws CloneNotSupportedException {
 	return super.clone();
@@ -715,5 +824,4 @@ public abstract class Personaje extends Avatar implements Peleable, Serializable
     public boolean esPersonaje() {
 	return true;
     }
-    
 }
