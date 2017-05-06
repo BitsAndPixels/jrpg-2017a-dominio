@@ -20,6 +20,10 @@ import java.io.Serializable;
  * @see all @
  *
  */
+/**
+ * @author Administrador
+ *
+ */
 public abstract class Personaje extends Avatar implements Peleable,
 Serializable {
     /**
@@ -182,19 +186,19 @@ Serializable {
      * Método constructor de un personaje nuevo el cual determina los atributos
      * del personaje dependiendo de su casta.
      *
-     *
-     * @param nombre
-     * @param casta
-     * @param id
-     * @param nombreRaza
-     * @param saludBonus
-     * @param energiaBonus
-     * @param habilidadUno
-     * @param habilidadDos
+     * @param nombre nombre
+     * @param casta casta.
+     * @param id id.
+     * @param nombreRaza nombreRaza.
+     * @param saludBonus saludBonus.
+     * @param energiaBonus energiaBonus.
+     * @param habilidadUno habilidadUno.
+     * @param habilidadDos habilidadDos.
      */
-    public Personaje(final String nombre, Casta casta, final int id,
-	    final String nombreRaza, final int saludBonus, final int energiaBonus,
-	    final String habilidadUno, final String habilidadDos) {
+    public Personaje(final String nombre, final Casta casta, final int id,
+	    final String nombreRaza, final int saludBonus,
+	    final int energiaBonus,final String habilidadUno,
+	    final String habilidadDos) {
 
 	super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1);
 	this.casta = casta;
@@ -220,26 +224,25 @@ Serializable {
 
     /**
      * Método constructor de un personaje existente.
-     *
-     * @param nombre
-     * @param salud
-     * @param energia
-     * @param fuerza
-     * @param destreza
-     * @param inteligencia
-     * @param casta
-     *            -> La clase del personaje
-     * @param experiencia
-     * @param nivel
-     * @param idPersonaje
-     * @param nombreRaza
-     * @param saludBonus
-     * @param energiaBonus
-     * @param habilidadUno
-     * @param habilidadDos
+     * @param nombre nombre.
+     * @param salud salud.
+     * @param energia energia.
+     * @param fuerza fuerza.
+     * @param destreza destreza.
+     * @param inteligencia inteligencia.
+     * @param casta casta.
+     * @param experiencia experiencia.
+     * @param nivel nivel.
+     * @param idPersonaje idPersonaje.
+     * @param nombreRaza nombreRaza.
+     * @param habilidadUno habilidadUno.
+     * @param habilidadDos habilidadDos.
      */
-    public Personaje(final String nombre, final int salud, final int energia, final int fuerza, final int destreza, final int inteligencia, final Casta casta,
-	    final int experiencia, final int nivel, final int idPersonaje, final String nombreRaza, final String habilidadUno, final String habilidadDos) {
+    public Personaje(final String nombre, final int salud, final int energia,
+	    final int fuerza, final int destreza, final int inteligencia,
+	    final Casta casta, final int experiencia, final int nivel,
+	    final int idPersonaje, final String nombreRaza, final String habilidadUno,
+	    final String habilidadDos) {
 
 	super(nombre, salud, fuerza, nivel);
 	this.energia = energia;
@@ -259,135 +262,214 @@ Serializable {
 	this.magia = this.calcularPuntosDeMagia();
     }
 
+    /**
+     * @return nombreRaza.
+     */
     public String getNombreRaza() {
 	return nombreRaza;
     }
 
+    /**
+     * @param nombreRaza nombreRaza.
+     */
     public void setNombreRaza(final String nombreRaza) {
 	this.nombreRaza = nombreRaza;
     }
 
+    /* (non-Javadoc)
+     * @see dominio.Peleable#getAtaque()
+     */
     @Override
     public int getAtaque() {
 	return ataque;
     }
 
+    /* (non-Javadoc)
+     * @see dominio.Peleable#setAtaque(int)
+     */
     @Override
     public void setAtaque(final int ataque) {
 	this.ataque = ataque;
     }
 
+    /**
+     * @return magia.
+     */
     public int getMagia() {
 	return magia;
     }
 
+    /**
+     * @param magia magia.
+     */
     public void setMagia(final int magia) {
 	this.magia = magia;
     }
 
+    /**
+     * @return clan.
+     */
     public Alianza getClan() {
 	return clan;
     }
 
+    /**
+     * @param clan setea en clan y en el clan del personaje.
+     */
     public void setClan(final Alianza clan) {
 	this.clan = clan;
 	clan.añadirPersonaje(this);
     }
 
+    /* (non-Javadoc)
+     * @see dominio.Peleable#getSalud()
+     */
     @Override
     public int getSalud() {
 	return salud;
     }
-    //
-    //    public void setSalud(final int salud) {
-    //	this.salud = salud;
-    //    }
 
+    /**
+     * @return energia.
+     */
+    /**
+     * @return
+     */
     public int getEnergia() {
 	return energia;
     }
 
+    /**
+     * @param energia energia,
+     */
     public void setEnergia(final int energia) {
 	this.energia = energia;
     }
 
-    //    public int getFuerza() {
-    //	return fuerza;
-    //    }
-    //
-    //    public void setFuerza(final int fuerza) {
-    //	this.fuerza = fuerza;
-    //    }
-
+    /**
+     * @return destreza.
+     */
     public int getDestreza() {
 	return destreza;
     }
 
+    /**
+     * @param destreza destreza.
+     */
     public void setDestreza(final int destreza) {
 	this.destreza = destreza;
     }
 
+    /**
+     * @return inteligencia.
+     */
     public int getInteligencia() {
 	return inteligencia;
     }
 
+    /**
+     * @param inteligencia inteligencia.
+     */
     public void setInteligencia(final int inteligencia) {
 	this.inteligencia = inteligencia;
     }
 
+    /**
+     * @return casta.
+     */
     public Casta getCasta() {
 	return casta;
     }
 
+    /**
+     * @param casta casta.
+     */
     public void setCasta(final Casta casta) {
 	this.casta = casta;
     }
 
+    /**
+     * @return experiencia.
+     */
     public int getExperiencia() {
 	return experiencia;
     }
 
+    /**
+     * @param experiencia experiencia.
+     */
     public void setExperiencia(final int experiencia) {
 	this.experiencia = experiencia;
     }
 
+    /* (non-Javadoc)
+     * @see dominio.Avatar#getNivel()
+     */
+    @Override
     public int getNivel() {
 	return nivel;
     }
 
+    /* (non-Javadoc)
+     * @see dominio.Avatar#setNivel(int)
+     */
+    @Override
     public void setNivel(final int nivel) {
 	this.nivel = nivel;
     }
 
+    /**
+     * @return idPersonaje.
+     */
     public int getIdPersonaje() {
 	return idPersonaje;
     }
 
+    /**
+     * @param idPersonaje idPersonaje.
+     */
     public void setIdPersonaje(final int idPersonaje) {
 	this.idPersonaje = idPersonaje;
     }
 
+    /**
+     * @return .
+     */
     public int getDefensa() {
 	return defensa;
     }
 
+    /**
+     * @param defensa defensa.
+     */
     public void setDefensa(final int defensa) {
 	this.defensa = defensa;
     }
 
-
+    /**
+     * @return saludTope.
+     */
     public int getSaludTope() {
 	return saludTope;
     }
 
+    /**
+     * @param saludTope saludTope.
+     */
     public void setSaludTope(final int saludTope) {
 	this.saludTope = saludTope;
     }
 
+    /**
+     * @return energiaTope.
+     */
     public int getEnergiaTope() {
 	return energiaTope;
     }
 
+    /**
+     * @param energiaTope energiaTope.
+     */
     public void setEnergiaTope(final int energiaTope) {
 	this.energiaTope = energiaTope;
     }
@@ -456,8 +538,11 @@ Serializable {
      * Método que permite determinar la cantidad de puntos de ataque del
      * personaje basando en la cantidad de fuerza del mismo.
      *
-     * @return (int) (this.getFuerza() * MUL_PUNTOS_FUERZA) 
+     * @return (int) (this.getFuerza() * MUL_PUNTOS_FUERZA)
      * -> Valor de ataque del personaje
+     */
+    /**
+     * @return
      */
     public int calcularPuntosDeAtaque() {
 	return (int) (this.getFuerza() * MUL_PUNTOS_FUERZA);
