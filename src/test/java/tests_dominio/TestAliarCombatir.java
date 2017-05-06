@@ -43,4 +43,28 @@ public class TestAliarCombatir {
 		Assert.assertTrue(h.getClan()==h2.getClan());
 	}
 	
+	@Test
+	public void testDañarElfo(){
+		Elfo h = new Elfo("Legolas",  new Guerrero(),  1);
+		Elfo h2 = new Elfo("Arwen",  new Asesino(),  1);
+		
+		Assert.assertTrue(h2.getSalud()==100);
+		if(	h.atacar(h2)!=0)
+			Assert.assertTrue(h2.getSalud()<100);
+		else
+			Assert.assertTrue(h2.getSalud()==100);
+	}
+	
+	@Test
+	public void testDañarOrco(){
+		Elfo h = new Elfo("Legolas",  new Guerrero(),  1);
+		Orco h2 = new Orco("Azog",  new Asesino(),  1);
+		
+		Assert.assertTrue(h2.getSalud()==110);
+		if(	h.atacar(h2)!=0)
+			Assert.assertTrue(h2.getSalud()<110);
+		else
+			Assert.assertTrue(h2.getSalud()==110);
+	}
+	
 }

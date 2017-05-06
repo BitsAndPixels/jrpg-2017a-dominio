@@ -11,23 +11,19 @@ public class Humano extends Personaje {
     /**
      * @param SALUD_TOPE incremento de salud tope.
      */
-    protected static final int SALUD_TOPE = 5;
+    protected static final int SALUD_BONUS = 5;
     /**
-     * @param ENERGIA_TOPE incremento de energia tope.
+     * @param ENERGIA_BONUS incremento de energia tope.
      */
-    protected static final int ENERGIA_TOPE = 5;
+    protected static final int ENERGIA_BONUS = 5;
+    
     /**
      * @param nombre nombre
      * @param casta casta
      * @param id id unico de personaje
      */
     public Humano(final String nombre, final Casta casta, final int id) {
-	super(nombre, casta, id);
-	saludTope += SALUD_TOPE;
-	energiaTope += ENERGIA_TOPE;
-	salud = saludTope;
-	energia = energiaTope;
-	nombreRaza = "Humano";
+    super(nombre, casta, id,"Humano", SALUD_BONUS, ENERGIA_BONUS, "Incentivar", "Golpe Fatal");
     }
 
     /**
@@ -44,16 +40,11 @@ public class Humano extends Personaje {
      * @param idPersonaje id unico de personaje
      */
     public Humano(final String nombre, final int salud, final int energia,
-	    final int fuerza, final int destreza, final int inteligencia,
-	    final Casta casta, final int experiencia, final int nivel,
-	    final int idPersonaje) {
-	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
-		experiencia, nivel, idPersonaje);
-	nombreRaza = "Humano";
-
-	habilidadesRaza = new String[2];
-	habilidadesRaza[0] = "Incentivar";
-	habilidadesRaza[1] = "Golpe Fatal";
+    	    final int fuerza, final int destreza, final int inteligencia,
+    	    final Casta casta, final int experiencia, final int nivel,
+    	    final int idPersonaje) {
+    super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
+    	experiencia, nivel, idPersonaje, "Humano", "Incentivar", "Golpe Fatal");
     }
     /**
      * Habilidad de Humano "Incentivar": Si la energia del personaje es mayor a
