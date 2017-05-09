@@ -1,23 +1,13 @@
 package dominio;
 
+import static constantes.ConstantesElfo.*;
+import static constantes.ConstantesPersonaje.*;
+
 /**
  * Clase Elfo - extiende de Personaje Contiene el contructor parametrizado de la
  * clase. Contiene las dos habilidades de raza.
  */
 public class Elfo extends Personaje {
-    /**
-     * @param SALUD_BONUS incremento de salud tope.
-     */
-    protected static final int SALUD_BONUS = 0;
-    /**
-     * @param ENERGIA_BONUS incremento de energia tope.
-     */
-    protected static final int ENERGIA_BONUS = 10;
-
-    /**
-     * MULTILICADOR_NIVEL.
-     */
-    protected static final int MULTILICADOR_NIVEL = 10;
 
     /**
      * @param nombre nombre.

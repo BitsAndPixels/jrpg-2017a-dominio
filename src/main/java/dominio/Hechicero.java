@@ -6,6 +6,8 @@
  */
 package dominio;
 
+import static constantes.ConstantesCasta.*;
+
 /**
  * Clase Hechicero - extiende de la clase abstracta Casta Contiene el contructor
  * por defecto. Contiene el contructor parametrizado de la clase. Contiene las

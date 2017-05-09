@@ -1,5 +1,7 @@
 package dominio;
 
+import static constantes.ConstantesHumano.*;
+import static constantes.ConstantesPersonaje.*;
 /**
  * Class Humano Extiende a la Class Personaje dandole caracteristicas de Humano.
  * Ventajas: salud +5 y energía +5
@@ -8,14 +10,6 @@ package dominio;
  * @see #habilidadRaza2(Peleable)
  */
 public class Humano extends Personaje {
-    /**
-     * @param SALUD_TOPE incremento de salud tope.
-     */
-    protected static final int SALUD_BONUS = 5;
-    /**
-     * @param ENERGIA_BONUS incremento de energia tope.
-     */
-    protected static final int ENERGIA_BONUS = 5;
 
     /**
      * @param nombre nombre

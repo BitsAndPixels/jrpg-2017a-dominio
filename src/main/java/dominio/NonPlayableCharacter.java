@@ -1,5 +1,7 @@
 package dominio;
 
+import static constantes.ConstantesNonPlayableCharacter.*;
+
 /**
  * <p>
  * Contiene la información necesaria para establecer la dicultad de un
@@ -11,100 +13,6 @@ package dominio;
  * @see Peleable interfaz perteneciente a este proyecto
  */
 public class NonPlayableCharacter extends Avatar implements Peleable {
-
-    /**
-     * DIFICULTAD_ALEATORIA contante.
-     */
-    private static final int DIFICULTAD_ALEATORIA = -1;
-    /**
-     * MULTIPLICADOR_ATAQUE constante.
-     */
-    private static final double MULTIPLICADOR_ATAQUE = 1.5;
-    /**
-     * SUERTE_MULTIPLICADOR_ATAQUE aleatorio.
-     */
-    private static final double SUERTE_MULTIPLICADOR_ATAQUE = 0.15;
-    /**
-     * EXPERIENCIA que gana.
-     */
-    private static final int EXPERIENCIA = 30;
-    /**
-     * CIFRAS_DIFICULTAD niveles de dificultad de NPC.
-     */
-    private static final int CIFRAS_DIFICULTAD = 3;
-    /**
-     * FUERZA_DIFICULTAD_0.
-     */
-    private static final int FUERZA_DIFICULTAD_0 = 10;
-    /**
-     * FUERZA_DIFICULTAD_1.
-     */
-    private static final int FUERZA_DIFICULTAD_1 = 20;
-    /**
-     * FUERZA_DIFICULTAD_2.
-     */
-    private static final int FUERZA_DIFICULTAD_2 = 30;
-    /**
-     * SALUD_DIFICULTAD_0.
-     */
-    private static final int SALUD_DIFICULTAD_0 = 30;
-    /**
-     * SALUD_DIFICULTAD_1.
-     */
-    private static final int SALUD_DIFICULTAD_1 = 40;
-    /**
-     * SALUD_DIFICULTAD_2.
-     */
-    private static final int SALUD_DIFICULTAD_2 = 50;
-    /**
-     * DEFENSA_DIFICULTAD_0.
-     */
-    private static final int DEFENSA_DIFICULTAD_0 = 2;
-    /**
-     * DEFENSA_DIFICULTAD_1.
-     */
-    private static final int DEFENSA_DIFICULTAD_1 = 5;
-    /**
-     * DEFENSA_DIFICULTAD_2.
-     */
-    private static final int DEFENSA_DIFICULTAD_2 = 4;
-    /**
-     * MULT_FUERZA_DIFICULTAD_0.
-     */
-    private static final int MULT_FUERZA_DIFICULTAD_0 = 3;
-    /**
-     * MULT_FUERZA_DIFICULTAD_1.
-     */
-    private static final int MULT_FUERZA_DIFICULTAD_1 = 6;
-    /**
-     * MULT_FUERZA_DIFICULTAD_2.
-     */
-    private static final int MULT_FUERZA_DIFICULTAD_2 = 10;
-    /**
-     * MULT_SALUD_DIFICULTAD_0.
-     */
-    private static final int MULT_SALUD_DIFICULTAD_0 = 15;
-    /**
-     * MULT_SALUD_DIFICULTAD_1.
-     */
-    private static final int MULT_SALUD_DIFICULTAD_1 = 20;
-    /**
-     * MULT_SALUD_DIFICULTAD_2.
-     */
-    private static final int MULT_SALUD_DIFICULTAD_2 = 25;
-    /**
-     * MULT_DEFENSA_DIFICULTAD_0.
-     */
-    private static final int MULT_DEFENSA_DIFICULTAD_0 = 1;
-    /**
-     * MULT_DEFENSA_DIFICULTAD_1.
-     */
-    private static final int MULT_DEFENSA_DIFICULTAD_1 = 2;
-    /**
-     * MULT_DEFENSA_DIFICULTAD_2.
-     */
-    private static final int MULT_DEFENSA_DIFICULTAD_2 = 4;
-
     /**
      * Metodo constructor que permite inicializar un objeto NonPlayableCharacter
      * definiendo la dicultad del juego y en función a este parametro +Fuerza

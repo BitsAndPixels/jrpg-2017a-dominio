@@ -1,5 +1,7 @@
 package dominio;
 
+import static constantes.ConstantesMyRandom.*;
+
 /**
  * Clase que permite obtener un valor pseudoaleatorio que permite modificar
  * atributos en otras clases según corresponda.
@@ -7,11 +9,6 @@ package dominio;
  */
 
 public class MyRandom {
-    /**
-     * @param VALOR_FIJO valor fijo.
-     */
-    protected static final double VALOR_FIJO = 0.49;
-
     /**
      * @see src/main/java/dominio/NonPlayableCharacter.java método setAtacado()
      * @return valor fijo 0.49

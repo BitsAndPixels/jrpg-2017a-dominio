@@ -1,7 +1,8 @@
 package dominio;
 
-import java.io.Serializable;
+import static constantes.ConstantesCasta.*;
 
+import java.io.Serializable;
 /**
  * Class Casta Una Casta es un gremio al que puede unirse un Personaje. Existen
  * tres tipos: Asesino, Guerrero y Hechicero.
@@ -15,26 +16,6 @@ import java.io.Serializable;
  *  #habilidad3(Personaje, Peleable)
  */
 public abstract class Casta implements Serializable {
-    /**
-     * PROB_GOLPE_CRITICO.
-     */
-    protected static final double PROB_GOLPE_CRITICO = 0.2;
-    /**
-     * PROB_EVITAR_DAÑO.
-     */
-    protected static final double PROB_EVITAR_DAÑO = 0.2;
-    /**
-     * DAÑO_CRITICO.
-     */
-    protected static final double DAÑO_CRITICO = 1.5;
-    /**
-     * ENERGIA_CONSUMIDA.
-     */
-    protected static final int ENERGIA_CONSUMIDA = 10;
-    /**
-     * CANTIDAD_HABILIDADES_CASTA.
-     */
-    protected static final int CANTIDAD_HABILIDADES_CASTA = 3;
     /**
      * probabilidadGolpeCritico.
      */

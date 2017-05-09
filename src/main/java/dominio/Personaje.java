@@ -1,5 +1,7 @@
 package dominio;
 
+import static constantes.ConstantesPersonaje.*;
+
 import java.io.Serializable;
 
 /**
@@ -26,66 +28,6 @@ import java.io.Serializable;
  */
 public abstract class Personaje extends Avatar implements Peleable,
 Serializable {
-    /**
-     * ENERGIA_CONSUMIDA.
-     */
-    protected static final int ENERGIA_CONSUMIDA = 10;
-    /**
-     * MAX_SKILL_VALUE.
-     */
-    protected static final int MAX_SKILL_VALUE = 200;
-    /**
-     * FUERZA_INICIAL.
-     */
-    protected static final int FUERZA_INICIAL = 10;
-    /**
-     * INTELIGENCIA_INICIAL.
-     */
-    protected static final int INTELIGENCIA_INICIAL = 10;
-    /**
-     * DESTREZA_INICIAL.
-     */
-    protected static final int DESTREZA_INICIAL = 10;
-    /**
-     * SALUD_TOPE.
-     */
-    protected static final int SALUD_TOPE = 100;
-    /**
-     * ENERGIA_TOPE.
-     */
-    protected static final int ENERGIA_TOPE = 100;
-    /**
-     * NIVEL_MAX.
-     */
-    protected static final int NIVEL_MAX = 100;
-    /**
-     * AUMENTO_SALUD.
-     */
-    protected static final int AUMENTO_SALUD = 25;
-    /**
-     * AUMENTO_ENERGIA.
-     */
-    protected static final int AUMENTO_ENERGIA = 20;
-    /**
-     * EXPERIENCIA.
-     */
-    protected static final int EXPERIENCIA = 40;
-    /**
-     * DIVISOR_GOLPE_CRITICO.
-     */
-    protected static final int DIVISOR_GOLPE_CRITICO = 1000;
-    /**
-     * MUL_PUNTOS_MAGIA.
-     */
-    protected static final double MUL_PUNTOS_MAGIA = 1.5;
-    /**
-     * MUL_PUNTOS_FUERZA.
-     */
-    protected static final double MUL_PUNTOS_FUERZA = 1.5;
-    /**
-     * ENERGIA_ATAQUE.
-     */
-    protected static final int ENERGIA_ATAQUE = 10;
     /**
      * Energia.
      */

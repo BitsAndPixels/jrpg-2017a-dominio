@@ -1,5 +1,8 @@
 package dominio;
 
+import static constantes.ConstantesOrco.*;
+import static constantes.ConstantesPersonaje.*;
+
 /**
  * <p>
  * Contiene los constructores y las habilidades de la raza Orco.
@@ -7,14 +10,6 @@ package dominio;
  */
 
 public class Orco extends Personaje {
-    /**
-     * @param SALUD_BONUS constante de salud a tope.
-     */
-    protected static final int SALUD_BONUS = 10;
-    /**
-     * @param ENERGIA_BONUS incremento de energia tope.
-     */
-    protected static final int ENERGIA_BONUS = 0;
     /**
      * Método constructor de un personaje nuevo de raza orco el cual determina
      * los atributos del personaje dependiendo de su casta.

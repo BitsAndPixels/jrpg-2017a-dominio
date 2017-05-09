@@ -1,5 +1,7 @@
 package dominio;
 
+import static constantes.ConstantesAsesino.*;
+import static constantes.ConstantesCasta.*;
 /**
  * Class Asesino Extiende a la Class Casta con las habilidades del tipo Asesino:
  * Habilidades: Golpe Critico, Aumentar Evasion y Robar.
@@ -8,19 +10,6 @@ package dominio;
  * @see #habilidad3(Personaje, Peleable)
  */
 public class Asesino extends Casta {
-
-    /**
-     * PROB_EVIT_DAÑO_MAX.
-     */
-    protected static final double PROB_EVIT_DAÑO_MAX = 0.5;
-    /**
-     * PROB_EVIT_DAÑO_MIN.
-     */
-    protected static final double PROB_EVIT_DAÑO_MIN = 0.15;
-    /**
-     * DESTREZA_HABILIDAD_CASTA.
-     */
-    protected static final int DESTREZA_HABILIDAD_CASTA = 5;
 
     /**
      * @param probCrit probabilidad de critico.
@@ -32,7 +21,6 @@ public class Asesino extends Casta {
 	super(probCrit, evasion, daño_crit);
 	this.nombreCasta = "Asesino";
     }
-
     /**
      * Contructor de Asesino.
      */

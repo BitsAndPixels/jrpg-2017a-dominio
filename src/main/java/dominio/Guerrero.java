@@ -1,5 +1,6 @@
 package dominio;
 
+import static constantes.ConstantesCasta.*;
 /**
  * Clase Guerrero - extiende de la clase abstracta Casta Contiene el contructor
  * por defecto. Contiene el contructor parametrizado de la clase. Contiene las
