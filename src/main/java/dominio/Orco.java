@@ -43,7 +43,7 @@ public class Orco extends Personaje {
 		experiencia, nivel, idPersonaje, "Orco", "Golpe Defensa",
 		"Mordisco de Vida");
     }
-    /**Este método permite al orco usar su primera habilidad de raza.
+    /**Este método permite al orco usar su primera habilidad de raza "Golpe Defensa"
      * @param atacado
      *            -> peleable a atacar
      * @return true/false -> Determina si se puede o no realizar la habilidad
@@ -59,7 +59,7 @@ public class Orco extends Personaje {
     }
 
     /**
-     * Este método permite al orco usar su segunda habilidad de raza.
+     * Este método permite al orco usar su segunda habilidad de raza "Mordisco de vida"
      * @param atacado
      *            -> peleable a atacar
      * @return true/false -> Determina si se puede o no realizar la habilidad

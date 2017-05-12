@@ -166,7 +166,7 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
 //		return salud;
 //	}
 
-    /**Este método permite definir el estdo del personaje luego de recibir un
+    /**Este método permite definir el estado del personaje luego de recibir un
      * ataque El nivel de saluda decrementa en función del nivel de defensa que
      * posea el personaje.
      * @param daño
