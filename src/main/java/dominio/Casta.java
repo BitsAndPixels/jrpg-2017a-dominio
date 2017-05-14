@@ -141,10 +141,26 @@ public abstract class Casta implements Serializable {
     public void setDañoCritico(final double dañoCritico) {
 	this.dañoCritico = dañoCritico;
     }
-
+    
     /**
-     * @param personaje personaje.
+     * @return retorna la destreza a setear al personaje.
      */
-    public void habilidadCasta(final Personaje personaje) {
+    public int getBonusDestreza(){
+    	return 0;
     }
+    
+    /**
+     * @return retorna la fuerza a setear al personaje.
+     */
+    public int getBonusFuerza(){
+    	return 0;
+    }
+    
+    /**
+     * @return retorna la inteligencia a setear al personaje.
+     */
+    public int getBonusInteligencia(){
+    	return 0;
+    }
+    
 }

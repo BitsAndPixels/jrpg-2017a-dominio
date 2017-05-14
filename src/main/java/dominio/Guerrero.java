@@ -106,12 +106,12 @@ public class Guerrero extends Casta {
 	}
 	return false;
     }
+
     /* (non-Javadoc)
-     * @see dominio.Casta#habilidadCasta(dominio.Personaje)
+     * @see dominio.Casta#getBonusFuerza()
      */
     @Override
-    public void habilidadCasta(final Personaje personaje) {
-	personaje.setFuerza(personaje.getFuerza()
-		+ FUERZA_HABILIDAD_CASTA);
+    public int getBonusFuerza(){
+    	return FUERZA_HABILIDAD_CASTA;
     }
 }

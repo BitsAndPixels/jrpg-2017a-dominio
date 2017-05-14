@@ -148,7 +148,9 @@ Serializable {
 	experiencia = 0;
 	inteligencia = INTELIGENCIA_INICIAL;
 	destreza = DESTREZA_INICIAL;
-	casta.habilidadCasta(this);
+	destreza+=casta.getBonusDestreza();
+	inteligencia+=casta.getBonusInteligencia();
+	fuerza+=casta.getBonusFuerza();
 	x = 0;
 	y = 0;
 	saludTope = SALUD_TOPE + saludBonus;
