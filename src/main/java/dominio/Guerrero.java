@@ -70,6 +70,7 @@ public class Guerrero extends Casta {
      *            implementando Peleable que es atacado
      * @return boolean
      */
+    @Override
     public boolean habilidad2(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
 	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);

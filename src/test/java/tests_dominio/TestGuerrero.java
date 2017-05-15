@@ -19,11 +19,8 @@ public class TestGuerrero {
 	e.setRandomGenerator(new MyRandomStub());
 	
 	Assert.assertEquals(e.getSalud(), 100);
-	if (h.habilidadCasta1(e))
-	    Assert.assertTrue(e.getSalud() < 100);
-
-	else
-	    Assert.assertEquals(e.getSalud(), 100);
+	Assert.assertTrue(h.habilidadCasta1(e));
+	Assert.assertTrue(e.getSalud() < 100);
     }
 
     @Test
@@ -31,7 +28,7 @@ public class TestGuerrero {
 	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
 
 	Assert.assertEquals(h.getDefensa(), 20);
-	h.habilidadCasta2(null);
+	Assert.assertTrue(h.habilidadCasta2(null));
 	Assert.assertEquals(h.getDefensa(), 65);
     }
 
@@ -43,10 +40,8 @@ public class TestGuerrero {
 	e.setRandomGenerator(new MyRandomStub());
 
 	Assert.assertEquals(e.getSalud(), 100);
-	if (h.habilidadCasta3(e))
-	    Assert.assertTrue(e.getSalud() < 100);
-	else
-	    Assert.assertEquals(e.getSalud(), 100);
+	Assert.assertTrue(h.habilidadCasta3(e));
+	Assert.assertTrue(e.getSalud() < 100);
     }
 
 }
