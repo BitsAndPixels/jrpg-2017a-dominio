@@ -7,6 +7,7 @@ import dominio.Asesino;
 import dominio.Elfo;
 import dominio.Hechicero;
 import dominio.Humano;
+import dominio.MyRandomStub;
 
 public class TestHechicero {
 
@@ -15,9 +16,10 @@ public class TestHechicero {
 	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
-	Assert.assertTrue(e.getSalud() == 100);
+
+	Assert.assertEquals(e.getSalud(), 100); 
 	e.setSalud(65);
-	Assert.assertTrue(e.getSalud() == 65);
+	Assert.assertEquals(e.getSalud(), 65);
 	h.habilidadCasta2(e);
 	Assert.assertTrue(e.getSalud() > 65);
     }
@@ -26,12 +28,12 @@ public class TestHechicero {
     public void testBolaDeFuego() {
 	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+	h.setRandomGenerator(new MyRandomStub());
+	e.setRandomGenerator(new MyRandomStub());
 
-	Assert.assertTrue(e.getSalud() == 100);
-	if (h.habilidadCasta1(e))
-	    Assert.assertTrue(e.getSalud() < 100);
-	else
-	    Assert.assertTrue(e.getSalud() == 100);
+	Assert.assertEquals(e.getSalud(), 100);
+	Assert.assertTrue(h.habilidadCasta1(e));
+	Assert.assertTrue(e.getSalud() < 100);
     }
 
     @Test
@@ -42,14 +44,14 @@ public class TestHechicero {
 	Assert.assertTrue(e.getSalud() == 100);
 	h.setSalud(50);
 	h.setEnergia(50);
-	if (h.habilidadCasta3(e)) {
-	    Assert.assertTrue(e.getSalud() < 100);
-	    Assert.assertTrue(h.getEnergia() > 50);
-	    Assert.assertTrue(h.getSalud() > 50);
-	} else {
-	    Assert.assertTrue(h.getSalud() == 50);
-	    Assert.assertTrue(h.getEnergia() < 50);
-	    Assert.assertTrue(e.getSalud() == 100);
-	}
+	Assert.assertTrue(h.habilidadCasta3(e));
+	Assert.assertTrue(e.getSalud() < 100);
+	Assert.assertTrue(h.getEnergia() > 50);
+	Assert.assertTrue(h.getSalud() > 50);
+	
+	Assert.assertNotEquals(h.getSalud(),50);
+	Assert.assertFalse(h.getEnergia() < 50);
+	Assert.assertNotEquals(e.getSalud(), 100);
+	
     }
 }

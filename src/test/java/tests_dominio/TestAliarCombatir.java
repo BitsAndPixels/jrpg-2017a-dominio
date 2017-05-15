@@ -25,9 +25,12 @@ public class TestAliarCombatir {
 	Humano h = new Humano("Nicolas", new Guerrero(), 1);
 	Humano h2 = new Humano("Lautaro", new Asesino(), 1);
 
+	h.setRandomGenerator(new MyRandomStub());
+	h2.setRandomGenerator(new MyRandomStub());
+	
 	Assert.assertTrue(h2.getSalud() == 105);
-	if (h.atacar(h2) != 0)
-	    Assert.assertTrue(h2.getSalud() < 105);
+	Assert.assertNotEquals(0, h.atacar(h2));
+	Assert.assertTrue(h2.getSalud() < 105);
     }
 
     @Test
@@ -72,30 +75,36 @@ public class TestAliarCombatir {
 	Assert.assertNull(ganon.getClan());
 	link.aliar(zelda);
 	link.aliar(ganon);
-	Assert.assertTrue(link.getClan() == zelda.getClan());
-	Assert.assertTrue(link.getClan() == ganon.getClan());
+	Assert.assertEquals(link.getClan(),zelda.getClan());
+	Assert.assertEquals(link.getClan(),ganon.getClan());
 	ganon.salirDeAlianza();
-	Assert.assertFalse(link.getClan() == ganon.getClan());
+	Assert.assertNotEquals(link.getClan(),ganon.getClan());
     }
 
     @Test
     public void testDañarElfo() {
 	Elfo h = new Elfo("Legolas", new Guerrero(), 1);
 	Elfo h2 = new Elfo("Arwen", new Asesino(), 1);
+	
+	h.setRandomGenerator(new MyRandomStub());
+	h2.setRandomGenerator(new MyRandomStub());
 
-	Assert.assertTrue(h2.getSalud() == 100);
-	if (h.atacar(h2) != 0)
-	    Assert.assertTrue(h2.getSalud() < 100);
+	Assert.assertEquals(100,h2.getSalud());
+	Assert.assertNotEquals(0, h.atacar(h2));
+	Assert.assertTrue(h2.getSalud() < 100);
     }
 
     @Test
     public void testDañarOrco() {
 	Elfo h = new Elfo("Legolas", new Guerrero(), 1);
 	Orco h2 = new Orco("Azog", new Asesino(), 1);
+	
+	h.setRandomGenerator(new MyRandomStub());
+	h2.setRandomGenerator(new MyRandomStub());
 
-	Assert.assertTrue(h2.getSalud() == 110);
-	if (h.atacar(h2) != 0)
-	    Assert.assertTrue(h2.getSalud() < 110);
+	Assert.assertEquals(110,h2.getSalud());
+	Assert.assertNotEquals(0, h.atacar(h2));
+	Assert.assertTrue(h2.getSalud() < 110);
     }
 
 }

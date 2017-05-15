@@ -1,28 +1,24 @@
 package dominio;
 
-import static constantes.ConstantesMyRandom.*;
+import java.util.Random;
 
 /**
  * Clase que permite obtener un valor pseudoaleatorio que permite modificar
  * atributos en otras clases según corresponda.
- * @see src/main/java/dominio/NonPlayableCharacter.java
+ * @see RandomGenerator
  */
 
-public class MyRandom {
-    /**
-     * @see src/main/java/dominio/NonPlayableCharacter.java método setAtacado()
-     * @return valor fijo 0.49
-     */
-    public static double nextDouble() {
-	return VALOR_FIJO;
+public class MyRandom extends RandomGenerator{
+   
+	@Override
+    public double nextDouble() {
+	return new Random().nextDouble();
     }
 
-    /**
-     * @param val valor que viene por parametro
-     * @return @value - 1
-     */
-    public static int nextInt(final int val) {
-	return val - 1;
+    
+	@Override
+    public int nextInt(final int val) {
+	return new Random().nextInt(val);
     }
 
 }

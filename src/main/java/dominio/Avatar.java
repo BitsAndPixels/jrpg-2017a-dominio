@@ -32,12 +32,16 @@ public abstract class Avatar {
      * @param fuerza fuerza.
      * @param nivel nivel.
      */
+    
+    protected RandomGenerator myRandom;
+    
     public Avatar(final String nombre, final int salud, final int fuerza, final int nivel) {
 
 	this.nombre = nombre;
 	this.salud = salud;
 	this.fuerza = fuerza;
 	this.nivel = nivel;
+	this.myRandom = new MyRandom();
     }
 
     /**
@@ -47,6 +51,7 @@ public abstract class Avatar {
     public Avatar(final String nombre, final int nivel) {
 	this.nombre = nombre;
 	this.nivel = nivel;
+	this.myRandom = new MyRandom();
     }
 
     /**
@@ -96,6 +101,19 @@ public abstract class Avatar {
      */
     public void setFuerza(final int fuerza) {
 	this.fuerza = fuerza;
+    }
+    /**
+     * Metodo Stub necesario para hacer pruebas de MyRandom
+     * Obtiene valores fijos de la Interfaz de constantes de MyRandom
+     * @see constantes.ConstantesMyRandom
+     * @param myRandomStub
+     */
+    public void setRandomGenerator(MyRandomStub myRandomStub) {
+		this.myRandom = myRandomStub;	
+	}
+    
+    public RandomGenerator getMyRandom(){
+    	return this.myRandom;
     }
 
 }

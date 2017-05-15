@@ -15,7 +15,6 @@ public interface Peleable {
      * @return daño -> Daño generado
 
      */
-
     int serAtacado(int daño);
 
     /**

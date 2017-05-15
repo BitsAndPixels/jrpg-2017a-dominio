@@ -29,7 +29,7 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
     super(nombre, nivel);
 	int dificultad;
 	if (dificultadNPC == DIFICULTAD_ALEATORIA) {
-	    dificultad = MyRandom.nextInt(CIFRAS_DIFICULTAD);
+	    dificultad = this.myRandom.nextInt(CIFRAS_DIFICULTAD);
 	}
 	else {
 	    dificultad = dificultadNPC;
@@ -154,7 +154,7 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
      * @return valor del ataque.
      */
     public int atacar(final Peleable atacado) {
-	if (MyRandom.nextDouble() <= SUERTE_MULTIPLICADOR_ATAQUE) {
+	if (this.myRandom.nextDouble() <= SUERTE_MULTIPLICADOR_ATAQUE) {
 	    return atacado.serAtacado((int) (this.getAtaque()
 		    * MULTIPLICADOR_ATAQUE));
 	}
@@ -175,7 +175,7 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
      * @return daño -> Daño generado
      */
     public int serAtacado(int daño) {
-	if (MyRandom.nextDouble() >= SUERTE_MULTIPLICADOR_ATAQUE) {
+	if (this.myRandom.nextDouble() >= SUERTE_MULTIPLICADOR_ATAQUE) {
 	    daño -= this.getDefensa() / 2;
 	    if (daño > 0) {
 		salud -= daño;
