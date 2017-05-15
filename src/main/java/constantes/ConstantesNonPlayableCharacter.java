@@ -4,93 +4,93 @@ public interface ConstantesNonPlayableCharacter {
     /**
      * DIFICULTAD_ALEATORIA contante.
      */
-    public static final int DIFICULTAD_ALEATORIA = -1;
+     int DIFICULTAD_ALEATORIA = -1;
     /**
      * MULTIPLICADOR_ATAQUE constante.
      */
-    public static final double MULTIPLICADOR_ATAQUE = 1.5;
+     double MULTIPLICADOR_ATAQUE = 1.5;
     /**
      * SUERTE_MULTIPLICADOR_ATAQUE aleatorio.
      */
-    public static final double SUERTE_MULTIPLICADOR_ATAQUE = 0.15;
+     double SUERTE_MULTIPLICADOR_ATAQUE = 0.15;
     /**
      * EXPERIENCIA que gana.
      */
-    public static final int EXPERIENCIA = 30;
+     int EXPERIENCIA = 30;
     /**
      * CIFRAS_DIFICULTAD niveles de dificultad de NPC.
      */
-    public static final int CIFRAS_DIFICULTAD = 3;
+     int CIFRAS_DIFICULTAD = 3;
     /**
      * FUERZA_DIFICULTAD_0.
      */
-    public static final int FUERZA_DIFICULTAD_0 = 10;
+     int FUERZA_DIFICULTAD_0 = 10;
     /**
      * FUERZA_DIFICULTAD_1.
      */
-    public static final int FUERZA_DIFICULTAD_1 = 20;
+     int FUERZA_DIFICULTAD_1 = 20;
     /**
      * FUERZA_DIFICULTAD_2.
      */
-    public static final int FUERZA_DIFICULTAD_2 = 30;
+     int FUERZA_DIFICULTAD_2 = 30;
     /**
      * SALUD_DIFICULTAD_0.
      */
-    public static final int SALUD_DIFICULTAD_0 = 30;
+     int SALUD_DIFICULTAD_0 = 30;
     /**
      * SALUD_DIFICULTAD_1.
      */
-    public static final int SALUD_DIFICULTAD_1 = 40;
+     int SALUD_DIFICULTAD_1 = 40;
     /**
      * SALUD_DIFICULTAD_2.
      */
-    public static final int SALUD_DIFICULTAD_2 = 50;
+     int SALUD_DIFICULTAD_2 = 50;
     /**
      * DEFENSA_DIFICULTAD_0.
      */
-    public static final int DEFENSA_DIFICULTAD_0 = 2;
+     int DEFENSA_DIFICULTAD_0 = 2;
     /**
      * DEFENSA_DIFICULTAD_1.
      */
-    public static final int DEFENSA_DIFICULTAD_1 = 5;
+     int DEFENSA_DIFICULTAD_1 = 5;
     /**
      * DEFENSA_DIFICULTAD_2.
      */
-    public static final int DEFENSA_DIFICULTAD_2 = 4;
+     int DEFENSA_DIFICULTAD_2 = 4;
     /**
      * MULT_FUERZA_DIFICULTAD_0.
      */
-    public static final int MULT_FUERZA_DIFICULTAD_0 = 3;
+     int MULT_FUERZA_DIFICULTAD_0 = 3;
     /**
      * MULT_FUERZA_DIFICULTAD_1.
      */
-    public static final int MULT_FUERZA_DIFICULTAD_1 = 6;
+     int MULT_FUERZA_DIFICULTAD_1 = 6;
     /**
      * MULT_FUERZA_DIFICULTAD_2.
      */
-    public static final int MULT_FUERZA_DIFICULTAD_2 = 10;
+     int MULT_FUERZA_DIFICULTAD_2 = 10;
     /**
      * MULT_SALUD_DIFICULTAD_0.
      */
-    public static final int MULT_SALUD_DIFICULTAD_0 = 15;
+     int MULT_SALUD_DIFICULTAD_0 = 15;
     /**
      * MULT_SALUD_DIFICULTAD_1.
      */
-    public static final int MULT_SALUD_DIFICULTAD_1 = 20;
+     int MULT_SALUD_DIFICULTAD_1 = 20;
     /**
      * MULT_SALUD_DIFICULTAD_2.
      */
-    public static final int MULT_SALUD_DIFICULTAD_2 = 25;
+     int MULT_SALUD_DIFICULTAD_2 = 25;
     /**
      * MULT_DEFENSA_DIFICULTAD_0.
      */
-    public static final int MULT_DEFENSA_DIFICULTAD_0 = 1;
+     int MULT_DEFENSA_DIFICULTAD_0 = 1;
     /**
      * MULT_DEFENSA_DIFICULTAD_1.
      */
-    public static final int MULT_DEFENSA_DIFICULTAD_1 = 2;
+     int MULT_DEFENSA_DIFICULTAD_1 = 2;
     /**
      * MULT_DEFENSA_DIFICULTAD_2.
      */
-    public static final int MULT_DEFENSA_DIFICULTAD_2 = 4;
+     int MULT_DEFENSA_DIFICULTAD_2 = 4;
 }

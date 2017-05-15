@@ -4,5 +4,5 @@ public interface ConstantesMyRandom {
     /**
      * @param VALOR_FIJO valor fijo.
      */
-    public static final double VALOR_FIJO = 0.49;
+     double VALOR_FIJO = 0.49;
 }

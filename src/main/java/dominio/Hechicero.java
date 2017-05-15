@@ -122,9 +122,12 @@ public class Hechicero extends Casta {
 	}
 	return false;
     }
+    
+    /* (non-Javadoc)
+     * @see dominio.Casta#getBonusInteligencia()
+     */
     @Override
-    public void habilidadCasta(final Personaje personaje) {
-	personaje.setInteligencia(personaje.getInteligencia()
-		+ INTELIGENCIA_HABILIDAD_CASTA);
+    public int getBonusInteligencia(){
+    	return INTELIGENCIA_HABILIDAD_CASTA;
     }
 }
