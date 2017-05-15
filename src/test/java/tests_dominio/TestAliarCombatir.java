@@ -52,14 +52,15 @@ public class TestAliarCombatir {
     Elfo link = new Elfo("Link", new Guerrero(), 1);
     Elfo zelda = new Elfo("Zelda", new Asesino(), 2);
     Orco ganon = new Orco("Ganondorf", new Asesino(), 3);
-    Alianza a = new Alianza("Lo Trifuerza");
-    LinkedList<Personaje> lista = new LinkedList<Personaje>();
-	Assert.assertEquals("Lo Trifuerza",a.obtenerNombre());
-	lista.add(link);
-	lista.add(zelda);
-	lista.add(ganon);
-	a.setAliados(lista);
-	Assert.assertEquals(3,a.getAliados().size());
+    link.crearAlianza("Lo Trifuerza");
+
+	Assert.assertNull(zelda.getClan());
+	Assert.assertNull(ganon.getClan());
+	link.aliar(zelda);
+	link.aliar(ganon);
+	Assert.assertEquals(link.getClan(),zelda.getClan());
+	Assert.assertEquals(link.getClan(),ganon.getClan());
+	Assert.assertEquals(3,link.getClan().getAliados().size());
 	
     }
     
