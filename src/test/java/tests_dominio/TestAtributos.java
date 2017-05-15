@@ -54,7 +54,7 @@ public class TestAtributos {
     @Test
     public void testAtributosDePersonaje() {
     Humano h = new Humano("Nicolas", new Guerrero(), 1);
-    Humano h2 = new Humano("Pepe", new Guerrero(), 1);
+    //Humano h2 = new Humano("Pepe", new Guerrero(), 1);
     //setter de experiencia
     h.setExperiencia(100);
     Assert.assertTrue(h.getExperiencia()== 100);

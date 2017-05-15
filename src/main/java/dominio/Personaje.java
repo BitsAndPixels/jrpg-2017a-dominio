@@ -431,11 +431,12 @@ Serializable {
      */
     @Override
     public int atacar(final Peleable atacado) {
-	if (salud == 0) {
+	
+    if (salud == 0) {
 	    return 0;
 	}
 	if (atacado.getSalud() > 0) {
-	    if (MyRandom.nextDouble()
+	    if (this.myRandom.nextDouble()
 		    <= this.casta.getProbabilidadGolpeCritico()
 		    + this.destreza / DIVISOR_GOLPE_CRITICO) {
 		return atacado.serAtacado(this.golpeCritico()); // ataque
@@ -560,8 +561,9 @@ Serializable {
 
     @Override
     public int serAtacado(int daño) {
-	if (MyRandom.nextDouble() >= this.getCasta().
-		getProbabilidadEvitarDaño()) {
+    
+    if (this.myRandom.nextDouble() >= this.getCasta().
+    	getProbabilidadEvitarDaño()) {
 	    daño -= this.defensa;
 	    if (daño > 0) {
 		if (salud <= daño) {
