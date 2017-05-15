@@ -15,18 +15,23 @@ public class TestDaño {
 	Humano h = new Humano("Nico", 100, 100, 100, 20, 30, new Guerrero(0.2, 0.3, 1.5), 0, 1, 1);
 	Orco o = new Orco("Nico", 100, 100, 15, 0, 30, new Guerrero(0.2, 0, 1.5), 0, 1, 1);
 	
-//	h.setRandomGenerator(new MyRandomStub());
-//	o.setRandomGenerator(new MyRandomStub());
+	h.setRandomGenerator(new MyRandomStub());
+	o.setRandomGenerator(new MyRandomStub());
 	
-	Assert.assertTrue(o.getSalud() == 100);
-	if (h.atacar(o) != 0) {
-	    Assert.assertTrue(o.getSalud() == 0);
-	    h.atacar(o);
-	    Assert.assertTrue(o.getSalud() == 0);
-	    h.atacar(o);
-	    Assert.assertTrue(o.getSalud() == 0);
-	} else
-	    Assert.assertTrue(o.getSalud() == 0);
+	Assert.assertEquals(100, o.getSalud());
+	
+	while (h.atacar(o) != 0) {
+	Assert.assertEquals(0, o.getSalud());
+	}
+	
+//	if (h.atacar(o) != 0) {
+//	    Assert.assertTrue(o.getSalud() == 0);
+//	    h.atacar(o);
+//	    Assert.assertTrue(o.getSalud() == 0);
+//	    h.atacar(o);
+//	    Assert.assertTrue(o.getSalud() == 0);
+//	} else
+//	    Assert.assertTrue(o.getSalud() == 0);
     }
 
     @Test
