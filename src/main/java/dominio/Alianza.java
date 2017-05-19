@@ -34,21 +34,18 @@ public class Alianza {
 
 	/**
 	 * @return aliados.
+	 * @see Alianza.copiaListaPersonaje
 	 */
 	public final LinkedList<Personaje> getAliados() {
-		LinkedList<Personaje> aliadosRetorno;
-		aliadosRetorno = new LinkedList<Personaje>();
-		aliadosRetorno = aliados;
-		return aliadosRetorno;
+		return Alianza.copiaListaPersonaje(aliados);
 	}
-
-	/**
-	 * Este método permite establecer una lista que viene por parametro de
-	 * personajes que se encuentran aliados.
-	 * 
-	 * @param aliados
-	 *            -> Perteneciente a la Clase LinkedList
-	 */
+	
+	private static LinkedList<Personaje> copiaListaPersonaje(LinkedList<Personaje> lista){
+		LinkedList<Personaje> listaRetorno = new LinkedList<>();
+		for(int i = 0; i < lista.size(); i ++)
+		listaRetorno.add(lista.get(i));
+		return listaRetorno;
+	}
 
 	/**
 	 * @return nombre.
