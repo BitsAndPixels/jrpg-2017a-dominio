@@ -69,13 +69,6 @@ public abstract class Avatar {
     }
 
     /**
-     * @param salud salud.
-     */
-//    public void setSalud(final int salud) {
-//	this.salud = salud;
-//    }
-
-    /**
      * @return nivel.
      */
     public int getNivel() {

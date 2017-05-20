@@ -2,6 +2,7 @@ package dominio;
 
 import static constantes.ConstantesAsesino.*;
 import static constantes.ConstantesCasta.*;
+import static constantes.ConstantesPersonaje.ENERGIA_CONSUMIDA;
 
 /**
  * Class Asesino Extiende a la Class Casta con las habilidades del tipo Asesino:
@@ -52,7 +53,7 @@ public class Asesino extends Casta {
 	 */
 	public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-			caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+			caster.consumirEnergia(ENERGIA_CONSUMIDA);
 			if (atacado.serAtacado((int) (caster.ataque * caster.getCasta().getDañoCritico())) > 0) {
 				return true;
 			}
@@ -74,7 +75,7 @@ public class Asesino extends Casta {
 	 */
 	public boolean habilidad2(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-			caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+			caster.consumirEnergia(ENERGIA_CONSUMIDA);
 			if (this.getProbabilidadEvitarDaño() + PROB_EVIT_DAÑO_MIN < PROB_EVIT_DAÑO_MAX) {
 				this.probabilidadEvitarDaño += PROB_EVIT_DAÑO_MIN;
 			} else {

@@ -1,5 +1,7 @@
 package tests_dominio;
 
+import java.util.HashMap;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,9 +18,11 @@ public class TestHechicero {
 	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
-
-	Assert.assertEquals(e.getSalud(), 100); 
-	e.setSalud(65);
+	HashMap<String,Integer> atributo = new HashMap<>();
+	atributo.put("salud"+e.getIdPersonaje(), 65);
+	atributo.put("energia"+e.getIdPersonaje(), 100);
+	e.modificarAtributos(atributo);
+	Assert.assertEquals(e.getEnergia(), 100); 
 	Assert.assertEquals(e.getSalud(), 65);
 	h.habilidadCasta2(e);
 	Assert.assertTrue(e.getSalud() > 65);
@@ -42,8 +46,10 @@ public class TestHechicero {
 	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
 	Assert.assertTrue(e.getSalud() == 100);
-	h.setSalud(50);
-	h.setEnergia(50);
+	HashMap<String,Integer> atributo = new HashMap<>();
+	atributo.put("salud"+e.getIdPersonaje(), 50);
+	atributo.put("energia"+e.getIdPersonaje(), 50);
+	e.modificarAtributos(atributo);
 	Assert.assertTrue(h.habilidadCasta3(e));
 	Assert.assertTrue(e.getSalud() < 100);
 	Assert.assertTrue(h.getEnergia() > 50);
