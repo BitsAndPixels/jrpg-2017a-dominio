@@ -298,24 +298,10 @@ Serializable {
     }
 
     /**
-     * @param destreza destreza.
-     */
-    public void setDestreza(final int destreza) {
-	this.destreza = destreza;
-    }
-
-    /**
      * @return inteligencia.
      */
     public int getInteligencia() {
 	return inteligencia;
-    }
-
-    /**
-     * @param inteligencia inteligencia.
-     */
-    public void setInteligencia(final int inteligencia) {
-	this.inteligencia = inteligencia;
     }
 
     /**
@@ -326,24 +312,10 @@ Serializable {
     }
 
     /**
-     * @param casta casta.
-     */
-    public void setCasta(final Casta casta) {
-	this.casta = casta;
-    }
-
-    /**
      * @return experiencia.
      */
     public int getExperiencia() {
 	return experiencia;
-    }
-
-    /**
-     * @param experiencia experiencia.
-     */
-    public void setExperiencia(final int experiencia) {
-	this.experiencia = experiencia;
     }
 
     /* (non-Javadoc)
@@ -354,26 +326,11 @@ Serializable {
 	return nivel;
     }
 
-    /* (non-Javadoc)
-     * @see dominio.Avatar#setNivel(int)
-     */
-    @Override
-    public void setNivel(final int nivel) {
-	this.nivel = nivel;
-    }
-
     /**
      * @return idPersonaje.
      */
     public int getIdPersonaje() {
 	return idPersonaje;
-    }
-
-    /**
-     * @param idPersonaje idPersonaje.
-     */
-    public void setIdPersonaje(final int idPersonaje) {
-	this.idPersonaje = idPersonaje;
     }
 
     /**
@@ -398,26 +355,11 @@ Serializable {
     }
 
     /**
-     * @param saludTope saludTope.
-     */
-    public void setSaludTope(final int saludTope) {
-	this.saludTope = saludTope;
-    }
-
-    /**
      * @return energiaTope.
      */
     public int getEnergiaTope() {
 	return energiaTope;
     }
-
-    /**
-     * @param energiaTope energiaTope.
-     */
-    public void setEnergiaTope(final int energiaTope) {
-	this.energiaTope = energiaTope;
-    }
-
 
     /**
      * Método que permite al personaje atacar , determinando si el ataque va a
