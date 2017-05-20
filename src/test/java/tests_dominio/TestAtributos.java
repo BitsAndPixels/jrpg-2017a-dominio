@@ -3,6 +3,9 @@ package tests_dominio;
 import org.junit.Test;
 
 import dominio.*;
+
+import java.util.HashMap;
+
 import org.junit.Assert;
 
 public class TestAtributos {
@@ -44,7 +47,10 @@ public class TestAtributos {
     h.salirDeAlianza();
     Assert.assertTrue(h.getClan()==null);
     //saber si tener menos de la energia requerida hacer que el personaje no pueda atacar 
-    h.setEnergia(5);
+    HashMap<String,Integer> atributo = new HashMap<>();
+	atributo.put("salud"+h.getIdPersonaje(), 100);
+	atributo.put("energia"+h.getIdPersonaje(), 5);
+	h.modificarAtributos(atributo);
     Assert.assertFalse(h.puedeAtacar());
     //probar setter y getter de NombreRaza
     h.setNombreRaza("ELFO");
