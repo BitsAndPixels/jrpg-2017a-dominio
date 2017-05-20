@@ -99,7 +99,7 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
     public void setNombre(final String nombre) {
 	this.nombre = nombre;
     }
-
+    
     /**
      * @return nivel retorna nivel.
      */

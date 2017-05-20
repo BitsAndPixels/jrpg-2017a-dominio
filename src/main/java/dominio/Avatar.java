@@ -83,25 +83,12 @@ public abstract class Avatar {
     }
 
     /**
-     * @param nivel nivel.
-     */
-    public void setNivel(final int nivel) {
-	this.nivel = nivel;
-    }
-
-    /**
      * @return fuerza.
      */
     public int getFuerza() {
 	return fuerza;
     }
 
-    /**
-     * @param fuerza fuerza.
-     */
-    public void setFuerza(final int fuerza) {
-	this.fuerza = fuerza;
-    }
     /**
      * Metodo Stub necesario para hacer pruebas de MyRandom
      * Obtiene valores fijos de la Interfaz de constantes de MyRandom
