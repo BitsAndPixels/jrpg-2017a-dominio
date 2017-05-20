@@ -1,6 +1,7 @@
 package dominio;
 
 import static constantes.ConstantesCasta.*;
+import static constantes.ConstantesPersonaje.ENERGIA_CONSUMIDA;
 /**
  * Clase Guerrero - extiende de la clase abstracta Casta Contiene el contructor
  * por defecto. Contiene el contructor parametrizado de la clase. Contiene las
@@ -49,7 +50,7 @@ public class Guerrero extends Casta {
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+		caster.consumirEnergia(ENERGIA_CONSUMIDA);
 	    if (atacado.serAtacado(caster.ataque * 2) > 0) {
 		return true;
 	    }
@@ -73,8 +74,8 @@ public class Guerrero extends Casta {
     @Override
     public boolean habilidad2(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
-	    caster.setDefensa(caster.getDefensa() + caster.magia);
+		caster.consumirEnergia(ENERGIA_CONSUMIDA);
+	    caster.modificarDefensa(caster.magia);
 	    return true;
 	}
 	return false;
@@ -95,12 +96,12 @@ public class Guerrero extends Casta {
      */
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+		caster.consumirEnergia(ENERGIA_CONSUMIDA);
 	    if (atacado.esPersonaje()) {
 		int defensaOriginal = ((Personaje) atacado).getDefensa();
-		((Personaje) atacado).setDefensa(0);
+		((Personaje) atacado).modificarDefensa(-defensaOriginal);
 		if (atacado.serAtacado(caster.ataque) > 0) {
-		    ((Personaje) atacado).setDefensa(defensaOriginal);
+		    ((Personaje) atacado).modificarDefensa(defensaOriginal);
 		    return true;
 		}
 	    }

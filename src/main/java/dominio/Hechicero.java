@@ -7,6 +7,7 @@
 package dominio;
 
 import static constantes.ConstantesCasta.*;
+import static constantes.ConstantesPersonaje.ENERGIA_CONSUMIDA;
 
 /**
  * Clase Hechicero - extiende de la clase abstracta Casta Contiene el contructor
@@ -59,7 +60,8 @@ public class Hechicero extends Casta {
      */
     public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+		caster.consumirEnergia(ENERGIA_CONSUMIDA);
+		caster.consumirEnergia(ENERGIA_CONSUMIDA);
 	    if (atacado.serAtacado((int) (caster.
 		    calcularPuntosDeMagia() * MUL_PUNTOS_MAGIA)) > 0) {
 		return true;
@@ -83,7 +85,7 @@ public class Hechicero extends Casta {
      */
     public boolean habilidad2(final Personaje caster, final Peleable aliado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+		caster.consumirEnergia(ENERGIA_CONSUMIDA);
 	    if (aliado.esPersonaje()) {
 		((Personaje) aliado).serCurado(caster.calcularPuntosDeMagia());
 		return true;
@@ -108,7 +110,8 @@ public class Hechicero extends Casta {
      */
     public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 	if (caster.getEnergia() > ENERGIA_CONSUMIDA) {
-	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+//	    caster.setEnergia(caster.getEnergia() - ENERGIA_CONSUMIDA);
+		caster.consumirEnergia(ENERGIA_CONSUMIDA);
 	    if (atacado.esPersonaje()) {
 		int energiaRobada = ((Personaje) atacado).
 			serDesernegizado(caster.calcularPuntosDeMagia());
