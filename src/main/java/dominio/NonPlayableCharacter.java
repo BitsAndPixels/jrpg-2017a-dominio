@@ -145,9 +145,9 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
     /**
      * @param salud setea salud.
      */
-//    public void setSalud(final int salud) {
-//	this.salud = salud;
-//    }
+    public void setSalud(final int salud) {
+	this.salud = salud;
+    }
 
     /**
      * @param atacado implementa Peleable.

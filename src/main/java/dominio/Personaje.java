@@ -3,6 +3,8 @@ package dominio;
 import static constantes.ConstantesPersonaje.*;
 
 import java.io.Serializable;
+import java.util.HashMap;
+
 
 /**
  * @JavaDoc
@@ -286,9 +288,9 @@ Serializable {
     /**
      * @param energia energia,
      */
-    public void setEnergia(final int energia) {
-	this.energia = energia;
-    }
+//    public void setEnergia(final int energia) {
+//	this.energia = energia;
+//    }
 
     /**
      * @return destreza.
@@ -855,4 +857,9 @@ Serializable {
     public boolean esPersonaje() {
 	return true;
     }
+
+	public void modificarAtributos(HashMap<String,Integer> atributos) {
+		this.salud = atributos.get("saludPersonaje");
+		this.energia = atributos.get("energiaPersonaje");	
+	}
 }
