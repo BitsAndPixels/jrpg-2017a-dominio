@@ -61,7 +61,6 @@ public class TestAliarCombatir {
 	Assert.assertEquals(link.getClan(),zelda.getClan());
 	Assert.assertEquals(link.getClan(),ganon.getClan());
 	Assert.assertEquals(3,link.getClan().getAliados().size());
-	
     }
     
     @Test
