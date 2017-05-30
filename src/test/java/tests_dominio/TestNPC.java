@@ -33,8 +33,8 @@ public class TestNPC {
     public void atacarNPC() {
     NonPlayableCharacter npc = new NonPlayableCharacter("Blob", 1, 1);
     Humano h = new Humano("Martin", new Hechicero(), 1);
-    npc.setRandomGenerator(new MyRandomStub());
-    h.setRandomGenerator(new MyRandomStub());
+    npc.setRandomGenerator(new MyRandomStub(0.49));
+    h.setRandomGenerator(new MyRandomStub(0.49));
     
     Assert.assertTrue(h.atacar(npc) > 0);
     Assert.assertTrue(npc.atacar(h) > 0);
@@ -44,8 +44,8 @@ public class TestNPC {
     public void atacaNPC() {
     NonPlayableCharacter npc = new NonPlayableCharacter("Goblin", 1, 0);
     Humano h = new Humano("Ruperto", new Hechicero(), 1);
-    npc.setRandomGenerator(new MyRandomStub());
-    h.setRandomGenerator(new MyRandomStub());
+    npc.setRandomGenerator(new MyRandomStub(0.49));
+    h.setRandomGenerator(new MyRandomStub(0.49));
     
     Assert.assertEquals(0,npc.atacar(h));
     }

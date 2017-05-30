@@ -86,10 +86,10 @@ public abstract class Avatar {
      * Metodo Stub necesario para hacer pruebas de MyRandom
      * Obtiene valores fijos de la Interfaz de constantes de MyRandom
      * @see constantes.ConstantesMyRandom
-     * @param myRandomStub
+     * @param randomGenerator
      */
-    public void setRandomGenerator(MyRandomStub myRandomStub) {
-		this.myRandom = myRandomStub;	
+    public void setRandomGenerator(RandomGenerator randomGenerator) {
+		this.myRandom = randomGenerator;	
 	}
     
     public RandomGenerator getMyRandom(){

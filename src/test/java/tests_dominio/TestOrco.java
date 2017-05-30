@@ -18,8 +18,8 @@ public class TestOrco {
     public void testGolpeDefensivo() {
 	Humano h = new Humano("Nicolas", new Guerrero(), 1);
 	Orco o = new Orco("Hernan", new Guerrero(), 1);
-	h.setRandomGenerator(new MyRandomStub());
-	o.setRandomGenerator(new MyRandomStub());
+	h.setRandomGenerator(new MyRandomStub(0.49));
+	o.setRandomGenerator(new MyRandomStub(0.49));
 
 	Assert.assertEquals(105, h.getSalud());
 	Assert.assertTrue(o.habilidadRaza1(h));
@@ -36,8 +36,8 @@ public class TestOrco {
     public void testMordiscoDeVida() {
 	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 	Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
-	h.setRandomGenerator(new MyRandomStub());
-	o.setRandomGenerator(new MyRandomStub());
+	h.setRandomGenerator(new MyRandomStub(0.49));
+	o.setRandomGenerator(new MyRandomStub(0.49));
 
 	Assert.assertEquals(100, h.getSalud());
 	HashMap<String,Integer> atributo = new HashMap<>();
