@@ -25,8 +25,8 @@ public class TestAliarCombatir {
 	Humano h = new Humano("Nicolas", new Guerrero(), 1);
 	Humano h2 = new Humano("Lautaro", new Asesino(), 1);
 
-	h.setRandomGenerator(new MyRandomStub());
-	h2.setRandomGenerator(new MyRandomStub());
+	h.setRandomGenerator(new MyRandomStub(0.49));
+	h2.setRandomGenerator(new MyRandomStub(0.49));
 	
 	Assert.assertTrue(h2.getSalud() == 105);
 	Assert.assertNotEquals(0, h.atacar(h2));
@@ -61,7 +61,6 @@ public class TestAliarCombatir {
 	Assert.assertEquals(link.getClan(),zelda.getClan());
 	Assert.assertEquals(link.getClan(),ganon.getClan());
 	Assert.assertEquals(3,link.getClan().getAliados().size());
-	
     }
     
     @Test
@@ -87,8 +86,8 @@ public class TestAliarCombatir {
 	Elfo h = new Elfo("Legolas", new Guerrero(), 1);
 	Elfo h2 = new Elfo("Arwen", new Asesino(), 1);
 	
-	h.setRandomGenerator(new MyRandomStub());
-	h2.setRandomGenerator(new MyRandomStub());
+	h.setRandomGenerator(new MyRandomStub(0.49));
+	h2.setRandomGenerator(new MyRandomStub(0.49));
 
 	Assert.assertEquals(100,h2.getSalud());
 	Assert.assertNotEquals(0, h.atacar(h2));
@@ -100,8 +99,8 @@ public class TestAliarCombatir {
 	Elfo h = new Elfo("Legolas", new Guerrero(), 1);
 	Orco h2 = new Orco("Azog", new Asesino(), 1);
 	
-	h.setRandomGenerator(new MyRandomStub());
-	h2.setRandomGenerator(new MyRandomStub());
+	h.setRandomGenerator(new MyRandomStub(0.49));
+	h2.setRandomGenerator(new MyRandomStub(0.49));
 
 	Assert.assertEquals(110,h2.getSalud());
 	Assert.assertNotEquals(0, h.atacar(h2));

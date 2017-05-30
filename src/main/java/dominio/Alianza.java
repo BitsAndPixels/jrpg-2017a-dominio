@@ -33,17 +33,11 @@ public class Alianza {
 	}
 
 	/**
-	 * @return aliados.
-	 * @see Alianza.copiaListaPersonaje
+	 * @return listaRetorno: es una copia de la lista de aliados.
+	 *
 	 */
 	public final LinkedList<Personaje> getAliados() {
-		return Alianza.copiaListaPersonaje(aliados);
-	}
-	
-	private static LinkedList<Personaje> copiaListaPersonaje(LinkedList<Personaje> lista){
-		LinkedList<Personaje> listaRetorno = new LinkedList<>();
-		for(int i = 0; i < lista.size(); i ++)
-		listaRetorno.add(lista.get(i));
+		LinkedList<Personaje> listaRetorno = new LinkedList<>(this.aliados);
 		return listaRetorno;
 	}
 

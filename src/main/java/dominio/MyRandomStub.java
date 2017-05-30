@@ -1,10 +1,12 @@
 package dominio;
 
-import static constantes.ConstantesMyRandom.*;
-
 public class MyRandomStub extends RandomGenerator {
 	
-	private double valor=VALOR_FIJO;
+	private double valor;
+	
+	public MyRandomStub(double valor) {
+		this.valor=valor;
+	}
 	
     /**
      * @see src/main/java/dominio/NonPlayableCharacter.java método setAtacado()

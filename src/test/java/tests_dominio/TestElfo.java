@@ -16,8 +16,8 @@ public class TestElfo {
     public void testGolpeLevel() {
 	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 2);
-	e.setRandomGenerator(new MyRandomStub());
-	h.setRandomGenerator(new MyRandomStub());
+	e.setRandomGenerator(new MyRandomStub(0.49));
+	h.setRandomGenerator(new MyRandomStub(0.49));
 
 	Assert.assertEquals(100, h.getSalud());
 	Assert.assertTrue(e.habilidadRaza1(h));
@@ -33,8 +33,8 @@ public class TestElfo {
     public void testAtaqueBosque() {
 	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 2);
-	e.setRandomGenerator(new MyRandomStub());
-	h.setRandomGenerator(new MyRandomStub());
+	e.setRandomGenerator(new MyRandomStub(0.49));
+	h.setRandomGenerator(new MyRandomStub(0.49));
 
 	Assert.assertEquals(100, h.getSalud());
 	Assert.assertTrue(e.habilidadRaza2(h));
