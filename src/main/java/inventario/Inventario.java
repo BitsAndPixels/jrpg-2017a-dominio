@@ -2,7 +2,8 @@ package inventario;
 
 public class Inventario {
 	private int idInventario;
-	private int[] manos;
+	private int manoDer;
+	private int manoIzq;
 	private int pie;
 	private int cabeza;
 	private int pecho;
@@ -10,9 +11,8 @@ public class Inventario {
 	
 	public Inventario(int idInventario, int manos1, int manos2, int pie, int cabeza, int pecho, int accesorio) {
 	this.idInventario=idInventario;
-	this.manos = new int[2];
-	this.manos[0] = manos1;
-	this.manos[1] = manos2;
+	this.manoDer = manos1;
+	this.manoIzq = manos2;
 	this.pie = pie;
 	this.cabeza = cabeza;
 	this.pecho = pecho;
@@ -27,15 +27,20 @@ public class Inventario {
 		this.idInventario = idInventario;
 	}
 
-	public int[] getManos() {
-		int[] manosCopy = new int[2];
-		manosCopy[0]=this.manos[0];
-		manosCopy[1]=this.manos[1];
-		return manosCopy;
+	public int getManosDer() {
+		return manoDer;
+	}
+	
+	public int getManosIzq() {
+		return manoIzq;
 	}
 
-	public void setManos(int[] manos) {
-		this.manos = manos;
+	public void setManoDer(int itemManos1) {
+		this.manoDer = itemManos1;
+	}
+	
+	public void setManoIzq(int itemManos2) {
+		this.manoIzq = itemManos2;
 	}
 
 	public int getPie() {

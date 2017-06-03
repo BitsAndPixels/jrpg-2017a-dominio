@@ -17,5 +17,7 @@ public class Mochila {
 	public int[] getItems() {
 		return items;
 	}
+	
+	
 
 }
