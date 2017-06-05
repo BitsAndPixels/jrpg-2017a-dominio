@@ -5,6 +5,8 @@ import static constantes.ConstantesPersonaje.*;
 import java.io.Serializable;
 import java.util.HashMap;
 
+import inventario.*;
+
 
 /**
  * @JavaDoc
@@ -142,9 +144,9 @@ Serializable {
     public Personaje(final String nombre, final Casta casta, final int id,
 	    final String nombreRaza, final int saludBonus,
 	    final int energiaBonus,final String habilidadUno,
-	    final String habilidadDos) {
+	    final String habilidadDos, final Inventario inventario, final Mochila mochila) {
 
-	super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1);
+	super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1, inventario, mochila);
 	this.casta = casta;
 	this.idPersonaje = id;
 	experiencia = 0;
@@ -188,9 +190,9 @@ Serializable {
 	    final int fuerza, final int destreza, final int inteligencia,
 	    final Casta casta, final int experiencia, final int nivel,
 	    final int idPersonaje, final String nombreRaza, final String habilidadUno,
-	    final String habilidadDos) {
+	    final String habilidadDos, final Inventario inventario, final Mochila mochila) {
 
-	super(nombre, salud, fuerza, nivel);
+	super(nombre, salud, fuerza, nivel, inventario, mochila);
 	this.energia = energia;
 	this.destreza = destreza;
 	this.inteligencia = inteligencia;
@@ -797,5 +799,23 @@ Serializable {
 	
 	public void modificarDefensa(int valor) {
 	this.defensa+=valor;
+	}
+	
+	public void aplicarBonusItem(Item item) {
+		this.ataque += item.getBonoAtaque();
+		this.defensa += item.getBonoDefensa();
+		this.magia += item.getBonoMagia();
+		this.saludTope += item.getBonoSalud();
+		this.energiaTope += item.getBonoEnergia();
+	}
+	
+	public void equiparItemsMochilaEnInventario(){
+		for (Item item : this.getMochila().getItems().values()) {
+			if (item.getEstado() == "equipado") {
+				if (this.getInventario().equiparItem(item)) {
+					this.aplicarBonusItem(item);
+				}
+			}
+		}
 	}
 }

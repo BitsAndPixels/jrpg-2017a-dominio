@@ -1,6 +1,6 @@
 package inventario;
 
-public abstract class Item {
+public class Item {
 	protected int idItem;
 	protected int bonoAtaque;
 	protected int bonoDefensa;
@@ -9,10 +9,13 @@ public abstract class Item {
 	protected int bonoEnergia;
 	protected int fuerzaRequerida;
 	protected int inteligenciaRequerida;
+	protected int tipo;
+	protected String nombre;
+	protected String estado;
 	
 	
 	public Item(int idItem, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
-			int fuerzaRequerida, int inteligenciaRequerida) {
+			int fuerzaRequerida, int inteligenciaRequerida, int tipo, String nombre, String estado) {
 	super();
 	this.idItem = idItem;
 	this.bonoAtaque = bonoAtaque;
@@ -22,6 +25,9 @@ public abstract class Item {
 	this.bonoEnergia = bonoEnergia;
 	this.fuerzaRequerida = fuerzaRequerida;
 	this.inteligenciaRequerida = inteligenciaRequerida;
+	this.tipo = tipo;
+	this.nombre = nombre;
+	this.estado = estado;
 	}
 
 
@@ -63,6 +69,19 @@ public abstract class Item {
 	public int getInteligenciaRequerida() {
 		return inteligenciaRequerida;
 	}
+
+
+	public int getTipo() {
+		return tipo;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
 	
+	public String getEstado() {
+		return estado;
+	}
 	
 }

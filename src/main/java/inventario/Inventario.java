@@ -1,15 +1,17 @@
 package inventario;
 
+import constantes.TiposItem;
+
 public class Inventario {
 	private int idInventario;
-	private int manoDer;
-	private int manoIzq;
-	private int pie;
-	private int cabeza;
-	private int pecho;
-	private int accesorio;
+	private Item manoDer;
+	private Item manoIzq;
+	private Item pie;
+	private Item cabeza;
+	private Item pecho;
+	private Item accesorio;
 	
-	public Inventario(int idInventario, int manos1, int manos2, int pie, int cabeza, int pecho, int accesorio) {
+	public Inventario(int idInventario, Item manos1, Item manos2, Item pie, Item cabeza, Item pecho, Item accesorio) {
 	this.idInventario=idInventario;
 	this.manoDer = manos1;
 	this.manoIzq = manos2;
@@ -27,52 +29,75 @@ public class Inventario {
 		this.idInventario = idInventario;
 	}
 
-	public int getManosDer() {
+	public Item getManosDer() {
 		return manoDer;
 	}
 	
-	public int getManosIzq() {
+	public Item getManosIzq() {
 		return manoIzq;
 	}
 
-	public void setManoDer(int itemManos1) {
+	public void setManoDer(Item itemManos1) {
 		this.manoDer = itemManos1;
 	}
 	
-	public void setManoIzq(int itemManos2) {
+	public void setManoIzq(Item itemManos2) {
 		this.manoIzq = itemManos2;
 	}
 
-	public int getPie() {
+	public Item getPie() {
 		return pie;
 	}
 
-	public void setPie(int pie) {
+	public void setPie(Item pie) {
 		this.pie = pie;
 	}
 
-	public int getCabeza() {
+	public Item getCabeza() {
 		return cabeza;
 	}
 
-	public void setCabeza(int cabeza) {
+	public void setCabeza(Item cabeza) {
 		this.cabeza = cabeza;
 	}
 
-	public int getPecho() {
+	public Item getPecho() {
 		return pecho;
 	}
 
-	public void setPecho(int pecho) {
+	public void setPecho(Item pecho) {
 		this.pecho = pecho;
 	}
 
-	public int getAccesorio() {
+	public Item getAccesorio() {
 		return accesorio;
 	}
 
-	public void setAccesorio(int accesorio) {
+	public void setAccesorio(Item accesorio) {
 		this.accesorio = accesorio;
 	}
 
+	public boolean equiparItem(Item item) {
+		switch (item.getTipo()) {
+		case TiposItem.MANO_DERECHA:
+			this.setManoDer(item);
+			return true;
+		case TiposItem.MANO_IZQUIERDA:
+			this.setManoIzq(item);
+			return true;
+		case TiposItem.PIES:
+			this.setPie(item);
+			return true;
+		case TiposItem.CABEZA:
+			this.setCabeza(item);
+			return true;
+		case TiposItem.PECHO:
+			this.setPecho(item);
+			return true;
+		case TiposItem.ACCESORIO:
+			this.setAccesorio(item);
+			return true;
+		}
+	return false;
+	}
 }

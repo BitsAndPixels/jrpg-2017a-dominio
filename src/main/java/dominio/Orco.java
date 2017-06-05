@@ -3,6 +3,9 @@ package dominio;
 import static constantes.ConstantesOrco.*;
 import static constantes.ConstantesPersonaje.*;
 
+import inventario.Inventario;
+import inventario.Mochila;
+
 /**
  * <p>
  * Contiene los constructores y las habilidades de la raza Orco.
@@ -17,9 +20,9 @@ public class Orco extends Personaje {
      * @param casta casta que pertenece
      * @param id id unico de personanje
      */
-    public Orco(final String nombre, final Casta casta, final int id) {
+    public Orco(final String nombre, final Casta casta, final int id, final Inventario inventario, final Mochila mochila) {
 	super(nombre, casta, id, "Orco", SALUD_BONUS, ENERGIA_BONUS,
-		"Golpe Defensa", "Mordisco de Vida");
+		"Golpe Defensa", "Mordisco de Vida", inventario, mochila);
     }
 
     /**
@@ -38,10 +41,10 @@ public class Orco extends Personaje {
     public Orco(final String nombre, final int salud, final int energia,
 	    final int fuerza, final int destreza, final int inteligencia,
 	    final Casta casta, final int experiencia, final int nivel,
-	    final int idPersonaje) {
+	    final int idPersonaje, final Inventario inventario, final Mochila mochila) {
 	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
 		experiencia, nivel, idPersonaje, "Orco", "Golpe Defensa",
-		"Mordisco de Vida");
+		"Mordisco de Vida", inventario, mochila);
     }
     /**Este método permite al orco usar su primera habilidad de raza "Golpe Defensa"
      * @param atacado

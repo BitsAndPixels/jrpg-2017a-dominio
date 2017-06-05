@@ -2,6 +2,9 @@ package dominio;
 
 import static constantes.ConstantesHumano.*;
 import static constantes.ConstantesPersonaje.*;
+
+import inventario.Inventario;
+import inventario.Mochila;
 /**
  * Class Humano Extiende a la Class Personaje dandole caracteristicas de Humano.
  * Ventajas: salud +5 y energía +5
@@ -16,9 +19,9 @@ public class Humano extends Personaje {
      * @param casta casta
      * @param id id unico de personaje
      */
-    public Humano(final String nombre, final Casta casta, final int id) {
+    public Humano(final String nombre, final Casta casta, final int id, final Inventario inventario, final Mochila mochila) {
 	super(nombre, casta, id, "Humano", SALUD_BONUS, ENERGIA_BONUS,
-		"Incentivar", "Golpe Fatal");
+		"Incentivar", "Golpe Fatal", inventario, mochila);
     }
 
     /**
@@ -37,9 +40,9 @@ public class Humano extends Personaje {
     public Humano(final String nombre, final int salud, final int energia,
 	    final int fuerza, final int destreza, final int inteligencia,
 	    final Casta casta, final int experiencia, final int nivel,
-	    final int idPersonaje) {
+	    final int idPersonaje, final Inventario inventario, final Mochila mochila) {
 	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
-		experiencia, nivel, idPersonaje, "Humano", "Incentivar", "Golpe Fatal");
+		experiencia, nivel, idPersonaje, "Humano", "Incentivar", "Golpe Fatal", inventario, mochila);
     }
     /**
      * Habilidad de Humano "Incentivar": Si la energia del personaje es mayor a
