@@ -801,12 +801,33 @@ Serializable {
 	this.defensa+=valor;
 	}
 	
+	// REFACTOR MANEJO DE ITEMS
+	
 	public void aplicarBonusItem(Item item) {
 		this.ataque += item.getBonoAtaque();
 		this.defensa += item.getBonoDefensa();
 		this.magia += item.getBonoMagia();
 		this.saludTope += item.getBonoSalud();
 		this.energiaTope += item.getBonoEnergia();
+	}
+	
+	public void quitarBonusItem(Item item) {
+		this.ataque -= item.getBonoAtaque();
+		this.defensa -= item.getBonoDefensa();
+		this.magia -= item.getBonoMagia();
+		this.saludTope -= item.getBonoSalud();
+		this.energiaTope -= item.getBonoEnergia();
+	}
+	
+	public void equiparItemEnInventario(int idItem) {
+		Item item = this.mochila.obtenerItem(idItem);
+		Item itemAnterior = this.inventario.obtenerItemEquipado(item.getTipo());
+		if (this.getInventario().desequiparItem(itemAnterior)) {
+			this.quitarBonusItem(itemAnterior);
+		}
+		if (this.getInventario().equiparItem(item)) {
+			this.aplicarBonusItem(item);
+		}
 	}
 	
 	public void equiparItemsMochilaEnInventario(){
@@ -818,4 +839,6 @@ Serializable {
 			}
 		}
 	}
+	
+
 }

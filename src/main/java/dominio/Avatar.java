@@ -113,6 +113,6 @@ public abstract class Avatar {
 		return mochila;
 	}
 
-	public abstract void equiparItemsInventario();
+	//public abstract void equiparItemsInventario();
 
 }

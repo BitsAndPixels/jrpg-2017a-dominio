@@ -7,15 +7,18 @@ public class Item {
 	protected int bonoMagia;
 	protected int bonoSalud;
 	protected int bonoEnergia;
-	protected int fuerzaRequerida;
-	protected int inteligenciaRequerida;
 	protected int tipo;
 	protected String nombre;
 	protected String estado;
 	
+	public Item() {
+	super();
+	this.nombre = "vacio";
+	this.estado = "vacio";
+	}
 	
 	public Item(int idItem, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
-			int fuerzaRequerida, int inteligenciaRequerida, int tipo, String nombre, String estado) {
+				int tipo, String nombre, String estado) {
 	super();
 	this.idItem = idItem;
 	this.bonoAtaque = bonoAtaque;
@@ -23,8 +26,6 @@ public class Item {
 	this.bonoMagia = bonoMagia;
 	this.bonoSalud = bonoSalud;
 	this.bonoEnergia = bonoEnergia;
-	this.fuerzaRequerida = fuerzaRequerida;
-	this.inteligenciaRequerida = inteligenciaRequerida;
 	this.tipo = tipo;
 	this.nombre = nombre;
 	this.estado = estado;
@@ -60,17 +61,6 @@ public class Item {
 		return bonoEnergia;
 	}
 
-
-	public int getFuerzaRequerida() {
-		return fuerzaRequerida;
-	}
-
-
-	public int getInteligenciaRequerida() {
-		return inteligenciaRequerida;
-	}
-
-
 	public int getTipo() {
 		return tipo;
 	}
@@ -83,5 +73,19 @@ public class Item {
 	public String getEstado() {
 		return estado;
 	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	public void serEquipado() {
+		this.estado="equipado";
+	}
+	
+	public void serDesequipado() {
+		this.estado="desequipado";
+	}
+
+	
 	
 }

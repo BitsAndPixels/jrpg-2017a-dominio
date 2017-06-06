@@ -11,6 +11,10 @@ public class Inventario {
 	private Item pecho;
 	private Item accesorio;
 	
+	public Inventario() {
+	
+	}
+	
 	public Inventario(int idInventario, Item manos1, Item manos2, Item pie, Item cabeza, Item pecho, Item accesorio) {
 	this.idInventario=idInventario;
 	this.manoDer = manos1;
@@ -29,11 +33,11 @@ public class Inventario {
 		this.idInventario = idInventario;
 	}
 
-	public Item getManosDer() {
+	public Item getManoDer() {
 		return manoDer;
 	}
 	
-	public Item getManosIzq() {
+	public Item getManoIzq() {
 		return manoIzq;
 	}
 
@@ -80,24 +84,64 @@ public class Inventario {
 	public boolean equiparItem(Item item) {
 		switch (item.getTipo()) {
 		case TiposItem.MANO_DERECHA:
-			this.setManoDer(item);
+			item.serEquipado();
+			this.manoDer=item;
 			return true;
 		case TiposItem.MANO_IZQUIERDA:
-			this.setManoIzq(item);
+			item.serEquipado();
+			this.manoIzq=item;
 			return true;
 		case TiposItem.PIES:
-			this.setPie(item);
+			item.serEquipado();
+			this.pie=item;
 			return true;
 		case TiposItem.CABEZA:
-			this.setCabeza(item);
+			item.serEquipado();
+			this.cabeza=item;
 			return true;
 		case TiposItem.PECHO:
-			this.setPecho(item);
+			item.serEquipado();
+			this.pecho=item;
 			return true;
 		case TiposItem.ACCESORIO:
-			this.setAccesorio(item);
+			item.serEquipado();
+			this.accesorio=item;
 			return true;
 		}
 	return false;
+	}
+	
+	public boolean desequiparItem(Item parteDelCuerpo) {
+		if (parteDelCuerpo.getEstado() == "equipado") {
+			parteDelCuerpo.serDesequipado();
+			//parteDelCuerpo=null;
+			return true;
+		}
+		return false;
+	}
+	
+	public Item obtenerItemEquipado(int tipoItem) {
+		Item item = new Item();
+		switch (tipoItem) {
+		case TiposItem.MANO_DERECHA:
+			item = this.getManoDer();
+			break;
+		case TiposItem.MANO_IZQUIERDA:
+			item = this.getManoIzq();
+			break;
+		case TiposItem.PIES:
+			item = this.getPie();
+			break;
+		case TiposItem.CABEZA:
+			item = this.getCabeza();
+			break;
+		case TiposItem.PECHO:
+			item = this.getPecho();
+			break;
+		case TiposItem.ACCESORIO:
+			item = this.getAccesorio();
+			break;
+		}
+		return item;
 	}
 }
