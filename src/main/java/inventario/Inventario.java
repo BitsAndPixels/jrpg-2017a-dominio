@@ -12,6 +12,13 @@ public class Inventario {
 	private Item accesorio;
 	
 	public Inventario() {
+		Item itemVacio = new Item();
+		this.manoDer = itemVacio;
+		this.manoIzq = itemVacio;
+		this.pie = itemVacio;
+		this.cabeza = itemVacio;
+		this.pecho = itemVacio;
+		this.accesorio = itemVacio;
 	
 	}
 	
@@ -114,7 +121,6 @@ public class Inventario {
 	public boolean desequiparItem(Item parteDelCuerpo) {
 		if (parteDelCuerpo.getEstado() == "equipado") {
 			parteDelCuerpo.serDesequipado();
-			//parteDelCuerpo=null;
 			return true;
 		}
 		return false;

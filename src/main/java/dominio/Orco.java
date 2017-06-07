@@ -20,9 +20,9 @@ public class Orco extends Personaje {
      * @param casta casta que pertenece
      * @param id id unico de personanje
      */
-    public Orco(final String nombre, final Casta casta, final int id, final Inventario inventario, final Mochila mochila) {
+    public Orco(final String nombre, final Casta casta, final int id) {
 	super(nombre, casta, id, "Orco", SALUD_BONUS, ENERGIA_BONUS,
-		"Golpe Defensa", "Mordisco de Vida", inventario, mochila);
+		"Golpe Defensa", "Mordisco de Vida");
     }
 
     /**

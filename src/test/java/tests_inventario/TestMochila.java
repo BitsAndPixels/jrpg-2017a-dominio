@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import inventario.*;
-import constantes.TiposItem;
+
 
 public class TestMochila {
 	@Test

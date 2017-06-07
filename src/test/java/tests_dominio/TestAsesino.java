@@ -7,6 +7,8 @@ import dominio.Asesino;
 import dominio.Hechicero;
 import dominio.Humano;
 import dominio.MyRandomStub;
+import inventario.Inventario;
+import inventario.Mochila;
 
 public class TestAsesino {
 
@@ -25,7 +27,7 @@ public class TestAsesino {
 
     @Test
     public void testProbEvasion() {
-	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
 
 	Assert.assertEquals(0.3, h.getCasta().getProbabilidadEvitarDaño(), 1E-10);
 	h.habilidadCasta2(null);

@@ -3,6 +3,7 @@ package tests_dominio;
 import org.junit.Test;
 
 import dominio.*;
+
 import org.junit.Assert;
 
 public class TestAsignarPuntos {

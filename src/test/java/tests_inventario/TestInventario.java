@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import inventario.*;
-import constantes.TiposItem;
 
 public class TestInventario {
 	@Test
@@ -32,11 +31,13 @@ public class TestInventario {
 		Inventario inventario1 = new Inventario();
 		inventario1.setIdInventario(1);
 		
-		Assert.assertEquals(null, inventario1.getManoDer());
-		Assert.assertEquals(null, inventario1.getManoIzq());
+		Assert.assertEquals("vacio", inventario1.getManoDer().getEstado());
+		Assert.assertEquals("vacio", inventario1.getManoIzq().getEstado());
 		
 		Assert.assertTrue(inventario1.equiparItem(mochila.obtenerItem(1)));
 		Assert.assertEquals("equipado", inventario1.getManoDer().getEstado());
+		Assert.assertTrue(inventario1.desequiparItem(inventario1.getManoDer()));
+		Assert.assertEquals("desequipado", inventario1.getManoDer().getEstado());
 	}
 
 }

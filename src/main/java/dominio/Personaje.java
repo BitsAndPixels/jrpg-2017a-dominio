@@ -144,9 +144,9 @@ Serializable {
     public Personaje(final String nombre, final Casta casta, final int id,
 	    final String nombreRaza, final int saludBonus,
 	    final int energiaBonus,final String habilidadUno,
-	    final String habilidadDos, final Inventario inventario, final Mochila mochila) {
+	    final String habilidadDos) {
 
-	super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1, inventario, mochila);
+	super(nombre, SALUD_TOPE, FUERZA_INICIAL, 1);
 	this.casta = casta;
 	this.idPersonaje = id;
 	experiencia = 0;
@@ -808,7 +808,9 @@ Serializable {
 		this.defensa += item.getBonoDefensa();
 		this.magia += item.getBonoMagia();
 		this.saludTope += item.getBonoSalud();
+		this.salud += item.getBonoSalud();
 		this.energiaTope += item.getBonoEnergia();
+		this.energia += item.getBonoEnergia();
 	}
 	
 	public void quitarBonusItem(Item item) {
@@ -816,20 +818,35 @@ Serializable {
 		this.defensa -= item.getBonoDefensa();
 		this.magia -= item.getBonoMagia();
 		this.saludTope -= item.getBonoSalud();
+		this.salud -= item.getBonoSalud();
 		this.energiaTope -= item.getBonoEnergia();
+		this.energia -= item.getBonoEnergia();
 	}
 	
-	public void equiparItemEnInventario(int idItem) {
+	public boolean equiparItemEnInventario(int idItem) {
 		Item item = this.mochila.obtenerItem(idItem);
-		Item itemAnterior = this.inventario.obtenerItemEquipado(item.getTipo());
-		if (this.getInventario().desequiparItem(itemAnterior)) {
-			this.quitarBonusItem(itemAnterior);
+		if (item.getEstado() == "desequipado") {
+			Item itemAnterior = this.inventario.obtenerItemEquipado(item.getTipo());
+			if (this.getInventario().desequiparItem(itemAnterior)) {
+				this.quitarBonusItem(itemAnterior);
+			}
+			if (this.getInventario().equiparItem(item)) {
+				this.aplicarBonusItem(item);
+				return true;
+			}
 		}
-		if (this.getInventario().equiparItem(item)) {
-			this.aplicarBonusItem(item);
-		}
+		return false;
 	}
 	
+	public boolean desequiparItemDeInventario(Item itemEquipado) {		
+		if (this.getInventario().desequiparItem(itemEquipado)) {
+			this.quitarBonusItem(itemEquipado);
+			return true;
+		}
+		return false;
+	}
+	
+	/*
 	public void equiparItemsMochilaEnInventario(){
 		for (Item item : this.getMochila().getItems().values()) {
 			if (item.getEstado() == "equipado") {
@@ -839,6 +856,6 @@ Serializable {
 			}
 		}
 	}
-	
+	*/
 
 }

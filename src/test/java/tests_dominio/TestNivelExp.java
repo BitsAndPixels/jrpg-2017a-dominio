@@ -6,13 +6,15 @@ import org.junit.Test;
 import dominio.Asesino;
 import dominio.Humano;
 import dominio.Personaje;
+import inventario.Inventario;
+import inventario.Mochila;
 
 public class TestNivelExp {
 
     @Test
     public void testGanarExp() {
 	Personaje.cargarTablaNivel();
-	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
 	h.ganarExperiencia(45);
 	Assert.assertEquals(h.getExperiencia(), 45);
     }
@@ -20,7 +22,7 @@ public class TestNivelExp {
     @Test
     public void testSubirNivel() {
 	Personaje.cargarTablaNivel();
-	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
 	h.ganarExperiencia(300);
 	Assert.assertEquals(h.getNivel(), 4);
 	Assert.assertEquals(h.getExperiencia(), 0);
@@ -29,7 +31,7 @@ public class TestNivelExp {
     @Test
     public void testLevel100() {
 	Personaje.cargarTablaNivel();
-	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 99, 1);
+	Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 99, 1, new Inventario(), new Mochila());
 	h.ganarExperiencia(10000);
 	Assert.assertEquals(h.getNivel(), 100);
     }

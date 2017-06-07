@@ -17,8 +17,8 @@ public class Elfo extends Personaje {
      * @param casta casta.
      * @param id identificador unico.
      */
-    public Elfo(final String nombre, final Casta casta, final int id, final Inventario inventario, final Mochila mochila) {
-	super(nombre, casta, id,"Elfo", SALUD_BONUS, ENERGIA_BONUS, "Golpe Level", "Ataque Bosque", inventario, mochila);
+    public Elfo(final String nombre, final Casta casta, final int id) {
+	super(nombre, casta, id,"Elfo", SALUD_BONUS, ENERGIA_BONUS, "Golpe Level", "Ataque Bosque");
     }
 
     /**

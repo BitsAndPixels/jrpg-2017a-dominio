@@ -6,11 +6,20 @@ public class Mochila {
 	private int idMochila;
 	private HashMap<Integer,Item> items;
 	
+	/**
+	 * Mochila Nueva.
+	 * Vacia.
+	 */
 	public Mochila() {
 		this.idMochila = 0;
 		this.items = new HashMap<Integer,Item>();
 	}
-		
+	
+	/**
+	 * Mochila Parametrizada
+	 * @param idMochila
+	 * @param items
+	 */
 	public Mochila(int idMochila, HashMap<Integer,Item> items) {
 		super();
 		this.idMochila = idMochila;

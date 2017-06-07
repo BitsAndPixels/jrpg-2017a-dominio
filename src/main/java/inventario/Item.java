@@ -11,12 +11,29 @@ public class Item {
 	protected String nombre;
 	protected String estado;
 	
+	/**
+	 * Item Nuevo
+	 * Estado: Vacio.
+	 */
 	public Item() {
 	super();
 	this.nombre = "vacio";
 	this.estado = "vacio";
 	}
 	
+	/**
+	 * Item Existente:
+	 * Estado Equipado/Desequipado
+	 * @param idItem
+	 * @param bonoAtaque
+	 * @param bonoDefensa
+	 * @param bonoMagia
+	 * @param bonoSalud
+	 * @param bonoEnergia
+	 * @param tipo
+	 * @param nombre
+	 * @param estado
+	 */
 	public Item(int idItem, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
 				int tipo, String nombre, String estado) {
 	super();
@@ -73,10 +90,6 @@ public class Item {
 	public String getEstado() {
 		return estado;
 	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
 	
 	public void serEquipado() {
 		this.estado="equipado";
@@ -85,7 +98,5 @@ public class Item {
 	public void serDesequipado() {
 		this.estado="desequipado";
 	}
-
-	
 	
 }

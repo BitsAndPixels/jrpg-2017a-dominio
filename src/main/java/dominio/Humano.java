@@ -19,9 +19,9 @@ public class Humano extends Personaje {
      * @param casta casta
      * @param id id unico de personaje
      */
-    public Humano(final String nombre, final Casta casta, final int id, final Inventario inventario, final Mochila mochila) {
+    public Humano(final String nombre, final Casta casta, final int id) {
 	super(nombre, casta, id, "Humano", SALUD_BONUS, ENERGIA_BONUS,
-		"Incentivar", "Golpe Fatal", inventario, mochila);
+		"Incentivar", "Golpe Fatal");
     }
 
     /**

@@ -42,6 +42,33 @@ public abstract class Avatar {
     
     protected RandomGenerator myRandom;
     
+    /**
+     * Avatar nuevo
+     * @param nombre
+     * @param salud
+     * @param fuerza
+     * @param nivel
+     */
+    public Avatar(final String nombre, final int salud, final int fuerza, final int nivel) {
+
+    	this.nombre = nombre;
+    	this.salud = salud;
+    	this.fuerza = fuerza;
+    	this.nivel = nivel;
+    	this.inventario = new Inventario();
+    	this.mochila = new Mochila();
+    	this.myRandom = new MyRandom();
+        }
+    
+    /**
+     * Avatar ya existente
+     * @param nombre
+     * @param salud
+     * @param fuerza
+     * @param nivel
+     * @param inventario
+     * @param mochila
+     */
     public Avatar(final String nombre, final int salud, final int fuerza, final int nivel, final Inventario inventario, final Mochila mochila) {
 
 	this.nombre = nombre;
