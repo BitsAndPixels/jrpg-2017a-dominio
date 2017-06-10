@@ -11,6 +11,8 @@ import dominio.Hechicero;
 import dominio.Humano;
 import dominio.MyRandomStub;
 import dominio.Orco;
+import inventario.Inventario;
+import inventario.Mochila;
 
 public class TestOrco {
 
@@ -34,8 +36,8 @@ public class TestOrco {
 
     @Test
     public void testMordiscoDeVida() {
-	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-	Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
+	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
+	Orco o = new Orco("Nico", 100, 100, 80, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
 	h.setRandomGenerator(new MyRandomStub(0.49));
 	o.setRandomGenerator(new MyRandomStub(0.49));
 

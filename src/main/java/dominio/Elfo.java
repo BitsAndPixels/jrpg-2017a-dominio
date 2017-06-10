@@ -3,6 +3,9 @@ package dominio;
 import static constantes.ConstantesElfo.*;
 import static constantes.ConstantesPersonaje.*;
 
+import inventario.Inventario;
+import inventario.Mochila;
+
 /**
  * Clase Elfo - extiende de Personaje Contiene el contructor parametrizado de la
  * clase. Contiene las dos habilidades de raza.
@@ -34,10 +37,10 @@ public class Elfo extends Personaje {
     public Elfo(final String nombre, final int salud, final int energia,
 	    final int fuerza, final int destreza, final int inteligencia,
 	    final Casta casta, final int experiencia, final int nivel,
-	    final int idPersonaje) {
+	    final int idPersonaje, final Inventario inventario, final Mochila mochila) {
 	super(nombre, salud, energia, fuerza, destreza, inteligencia, casta,
 		experiencia, nivel, idPersonaje, "Elfo",
-		"Golpe Level", "Ataque Bosque");
+		"Golpe Level", "Ataque Bosque", inventario, mochila);
     }
 
     /**

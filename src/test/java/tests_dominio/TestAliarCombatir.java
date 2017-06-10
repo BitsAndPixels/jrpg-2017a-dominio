@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 import dominio.*;
+import inventario.*;
 
 public class TestAliarCombatir {
 

@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import dominio.*;
+import inventario.Inventario;
+import inventario.Mochila;
 
 public class TestAtaqueCritico {
 

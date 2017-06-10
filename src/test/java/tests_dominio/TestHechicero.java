@@ -10,13 +10,15 @@ import dominio.Elfo;
 import dominio.Hechicero;
 import dominio.Humano;
 import dominio.MyRandomStub;
+import inventario.Inventario;
+import inventario.Mochila;
 
 public class TestHechicero {
 
     @Test
     public void testCurar() {
-	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
+	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1, new Inventario(), new Mochila());
 
 	HashMap<String,Integer> atributo = new HashMap<>();
 	atributo.put("salud"+e.getIdPersonaje(), 65);
@@ -30,8 +32,8 @@ public class TestHechicero {
 
     @Test
     public void testBolaDeFuego() {
-	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+	Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
+	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1, new Inventario(), new Mochila());
 	h.setRandomGenerator(new MyRandomStub(0.49));
 	e.setRandomGenerator(new MyRandomStub(0.49));
 
@@ -42,8 +44,8 @@ public class TestHechicero {
 
     @Test
     public void testRobarEnergia_y_Salud() {
-	Humano h = new Humano("Nico", 100, 100, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
-	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
+	Humano h = new Humano("Nico", 100, 100, 55, 20, 50, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1, new Inventario(), new Mochila());
+	Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1, new Inventario(), new Mochila());
 
 	Assert.assertTrue(e.getSalud() == 100);
 	HashMap<String,Integer> atributo = new HashMap<>();

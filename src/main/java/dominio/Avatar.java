@@ -1,5 +1,8 @@
 package dominio;
 
+import inventario.Inventario;
+import inventario.Mochila;
+
 /**
  * @author Administrador
  *
@@ -25,6 +28,10 @@ public abstract class Avatar {
      * nivel.
      */
     protected int nivel;
+    
+    protected Inventario inventario;
+    
+    protected Mochila mochila;
 
     /**
      * @param nombre nombre.
@@ -35,12 +42,41 @@ public abstract class Avatar {
     
     protected RandomGenerator myRandom;
     
+    /**
+     * Avatar nuevo
+     * @param nombre
+     * @param salud
+     * @param fuerza
+     * @param nivel
+     */
     public Avatar(final String nombre, final int salud, final int fuerza, final int nivel) {
+
+    	this.nombre = nombre;
+    	this.salud = salud;
+    	this.fuerza = fuerza;
+    	this.nivel = nivel;
+    	this.inventario = new Inventario();
+    	this.mochila = new Mochila();
+    	this.myRandom = new MyRandom();
+        }
+    
+    /**
+     * Avatar ya existente
+     * @param nombre
+     * @param salud
+     * @param fuerza
+     * @param nivel
+     * @param inventario
+     * @param mochila
+     */
+    public Avatar(final String nombre, final int salud, final int fuerza, final int nivel, final Inventario inventario, final Mochila mochila) {
 
 	this.nombre = nombre;
 	this.salud = salud;
 	this.fuerza = fuerza;
 	this.nivel = nivel;
+	this.inventario = inventario;
+	this.mochila = mochila;
 	this.myRandom = new MyRandom();
     }
 
@@ -95,5 +131,15 @@ public abstract class Avatar {
     public RandomGenerator getMyRandom(){
     	return this.myRandom;
     }
+    
+    public Inventario getInventario() {
+		return inventario;
+	}
+
+	public Mochila getMochila() {
+		return mochila;
+	}
+
+	//public abstract void equiparItemsInventario();
 
 }

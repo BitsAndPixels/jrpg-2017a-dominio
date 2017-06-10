@@ -221,4 +221,8 @@ public class NonPlayableCharacter extends Avatar implements Peleable {
     public boolean esPersonaje() {
 	return false;
     }
+    
+    public void equiparItemsInventario(){
+		
+	}
 }
