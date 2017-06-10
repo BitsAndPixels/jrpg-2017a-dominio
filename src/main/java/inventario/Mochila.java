@@ -29,6 +29,10 @@ public class Mochila {
 	public int getIdMochila() {
 		return idMochila;
 	}
+	
+	public void setIdMochila(int idMochila) {
+		this.idMochila = idMochila;
+	}
 
 	public HashMap<Integer,Item> getItems() {
 		return items;
