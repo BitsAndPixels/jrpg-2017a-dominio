@@ -2,5 +2,7 @@
 **/.settings
 **/.gradle
 **/bin
-**/build
-!**/build/libs/jrpg-2017a-dominio-0.1.jar
+build/*
+!build/libs/
+build/libs/*
+!build/libs/jrpg-2017a-dominio-0.1.jar
