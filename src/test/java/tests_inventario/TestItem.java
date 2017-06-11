@@ -22,13 +22,8 @@ public class TestItem {
 		item2.serEquipado();
 		Assert.assertEquals("equipado", item2.getEstado());
 		
-		Item item3 = item;
 		
-		Assert.assertEquals(0, item3.getBonoAtaque());
 		
-		item3 = null;
-		
-		Assert.assertEquals(0, item.getBonoAtaque());
 	}
 
 }
