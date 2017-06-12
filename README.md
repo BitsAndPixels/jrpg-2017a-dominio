@@ -1,3 +1,6 @@
+## Travis CI:
+[![Build Status](https://travis-ci.org/BitsAndPixels/jrpg-2017a-dominio.svg?branch=master)](https://travis-ci.org/BitsAndPixels/jrpg-2017a-dominio)
+
 # World Of Middle Earth (WOME) - dominio
 
 ## Sobre las personas
