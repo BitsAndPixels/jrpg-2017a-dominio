@@ -825,7 +825,7 @@ Serializable {
 	
 	public boolean equiparItemEnInventario(int idItem) {
 		Item item = this.mochila.obtenerItem(idItem);
-		if (item.getEstado() == "desequipado") {
+		if (item.getEstado().equals("desequipado")) {
 			Item itemAnterior = this.inventario.obtenerItemEquipado(item.getTipo());
 			if (this.getInventario().desequiparItem(itemAnterior)) {
 				this.quitarBonusItem(itemAnterior);
@@ -845,17 +845,5 @@ Serializable {
 		}
 		return false;
 	}
-	
-	/*
-	public void equiparItemsMochilaEnInventario(){
-		for (Item item : this.getMochila().getItems().values()) {
-			if (item.getEstado() == "equipado") {
-				if (this.getInventario().equiparItem(item)) {
-					this.aplicarBonusItem(item);
-				}
-			}
-		}
-	}
-	*/
 
 }
