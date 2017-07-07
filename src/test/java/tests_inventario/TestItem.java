@@ -25,5 +25,24 @@ public class TestItem {
 		
 		
 	}
-
+	
+	@Test
+	public void TestCopiarItem() {
+		Item item = new Item();
+		Assert.assertEquals("vacio", item.getEstado());
+		Assert.assertEquals("vacio", item.getNombre());
+		Assert.assertEquals(0, item.getBonoAtaque());
+		
+		Item item2 = new Item(1,2,0,0,0,0,1,"Espada del augurio","desequipado");
+		
+		Item item3 = new Item(item2);
+		
+		Assert.assertEquals("Espada del augurio", item3.getNombre());
+		Assert.assertEquals(TiposItem.MANO_DERECHA, item3.getTipo());
+		item3.serEquipado();
+		Assert.assertEquals("equipado", item3.getEstado());
+		
+		
+		
+	}
 }

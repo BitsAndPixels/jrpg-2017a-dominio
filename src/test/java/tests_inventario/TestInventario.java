@@ -19,11 +19,19 @@ public class TestInventario {
 	public void testEquiparItem() {
 		Item item1 = new Item(1,2,0,0,0,0,1,"Espada","desequipado");
 		Item item2 = new Item(2,0,2,0,0,0,2,"Escudo","desequipado");
+		Item item3 = new Item(3,0,2,0,0,0,3,"Botas","desequipado");
+		Item item4 = new Item(4,0,2,0,0,0,4,"Casco","desequipado");
+		Item item5 = new Item(5,0,2,0,0,0,5,"Armadura","desequipado");
+		Item item6 = new Item(6,0,2,0,0,0,6,"Talisman","desequipado");
 		
 		Mochila mochila = new Mochila();
 		
 		Assert.assertTrue(mochila.agregaItem(item1));
 		Assert.assertTrue(mochila.agregaItem(item2));
+		Assert.assertTrue(mochila.agregaItem(item3));
+		Assert.assertTrue(mochila.agregaItem(item4));
+		Assert.assertTrue(mochila.agregaItem(item5));
+		Assert.assertTrue(mochila.agregaItem(item6));
 		
 		Assert.assertEquals("Espada", mochila.obtenerItem(1).getNombre());
 		Assert.assertEquals("Escudo", mochila.obtenerItem(2).getNombre());
@@ -38,6 +46,18 @@ public class TestInventario {
 		Assert.assertEquals("equipado", inventario1.getManoDer().getEstado());
 		Assert.assertTrue(inventario1.desequiparItem(inventario1.getManoDer()));
 		Assert.assertEquals("desequipado", inventario1.getManoDer().getEstado());
-	}
+		
+		Assert.assertTrue(inventario1.equiparItem(mochila.obtenerItem(2)));
+		Assert.assertEquals("equipado", inventario1.getManoIzq().getEstado());
+		Assert.assertTrue(inventario1.equiparItem(mochila.obtenerItem(3)));
+		Assert.assertEquals("equipado", inventario1.getPie().getEstado());
+		Assert.assertTrue(inventario1.equiparItem(mochila.obtenerItem(4)));
+		Assert.assertEquals("equipado", inventario1.getCabeza().getEstado());
+		Assert.assertTrue(inventario1.equiparItem(mochila.obtenerItem(5)));
+		Assert.assertEquals("equipado", inventario1.getPecho().getEstado());
+		Assert.assertTrue(inventario1.equiparItem(mochila.obtenerItem(6)));
+		Assert.assertEquals("equipado", inventario1.getAccesorio().getEstado());
+	} 
+	
 
 }
