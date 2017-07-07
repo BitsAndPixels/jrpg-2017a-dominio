@@ -10,20 +10,19 @@ public class Item {
 	protected int tipo;
 	protected String nombre;
 	protected String estado;
-	
+
 	/**
-	 * Item Nuevo
-	 * Estado: Vacio.
+	 * Item Nuevo Estado: Vacio.
 	 */
 	public Item() {
-	super();
-	this.nombre = "vacio";
-	this.estado = "vacio";
+		super();
+		this.nombre = "vacio";
+		this.estado = "vacio";
 	}
-	
+
 	/**
-	 * Item Existente:
-	 * Estado Equipado/Desequipado
+	 * Item Existente: Estado Equipado/Desequipado
+	 * 
 	 * @param idItem
 	 * @param bonoAtaque
 	 * @param bonoDefensa
@@ -34,45 +33,53 @@ public class Item {
 	 * @param nombre
 	 * @param estado
 	 */
-	public Item(int idItem, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia,
-				int tipo, String nombre, String estado) {
-	super();
-	this.idItem = idItem;
-	this.bonoAtaque = bonoAtaque;
-	this.bonoDefensa = bonoDefensa;
-	this.bonoMagia = bonoMagia;
-	this.bonoSalud = bonoSalud;
-	this.bonoEnergia = bonoEnergia;
-	this.tipo = tipo;
-	this.nombre = nombre;
-	this.estado = estado;
+	public Item(int idItem, int bonoAtaque, int bonoDefensa, int bonoMagia, int bonoSalud, int bonoEnergia, int tipo,
+			String nombre, String estado) {
+		super();
+		this.idItem = idItem;
+		this.bonoAtaque = bonoAtaque;
+		this.bonoDefensa = bonoDefensa;
+		this.bonoMagia = bonoMagia;
+		this.bonoSalud = bonoSalud;
+		this.bonoEnergia = bonoEnergia;
+		this.tipo = tipo;
+		this.nombre = nombre;
+		this.estado = estado;
 	}
 
+	//Ingresado para Menu mochila iventario
+	public Item(Item aux) {
+		super();
+		this.idItem = aux.idItem;
+		this.nombre = aux.nombre;
+		this.tipo = aux.tipo;
+		this.bonoAtaque = aux.bonoAtaque;
+		this.bonoDefensa = aux.bonoDefensa;
+		this.bonoMagia = aux.bonoMagia;
+		this.bonoSalud = aux.bonoSalud;
+		this.bonoEnergia = aux.bonoEnergia;
+		this.estado = aux.estado;
+	}
 
 	public int getIdItem() {
 		return idItem;
 	}
 
-
 	public int getBonoAtaque() {
 		return bonoAtaque;
 	}
-
 
 	public int getBonoDefensa() {
 		return bonoDefensa;
 	}
 
-
 	public int getBonoMagia() {
 		return bonoMagia;
 	}
 
-
 	public int getBonoSalud() {
 		return bonoSalud;
 	}
-
 
 	public int getBonoEnergia() {
 		return bonoEnergia;
@@ -82,21 +89,20 @@ public class Item {
 		return tipo;
 	}
 
-
 	public String getNombre() {
 		return nombre;
 	}
-	
+
 	public String getEstado() {
 		return estado;
 	}
-	
+
 	public void serEquipado() {
-		this.estado="equipado";
+		this.estado = "equipado";
 	}
-	
+
 	public void serDesequipado() {
-		this.estado="desequipado";
+		this.estado = "desequipado";
 	}
-	
+
 }
